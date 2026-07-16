@@ -1,0 +1,24 @@
+{
+  "fullName": "Иван Иванович Петров",
+  "bio": "Адвокат с 27-летним стажем, защитивший более 1250 дел. Специализация: уголовные дела, экономические преступления, административные и гражданские споры.",
+  "regNumber": "РА 1234567",
+  "experienceYears": 27,
+  "casesWon": 1250,
+  "phone": "+74951234567",
+  "email": "petrov@legal-service.ru",
+  "city": "Москва",
+  "address": "ул. Большая Дмитровка, д. 28",
+  "postalCode": "127006",
+  "inn": "770123456789",
+  "ogrn": "31677460001234567012",
+  "serviceRegions": ["Москва", "Московская область", "Россия (удалённое обслуживание)"],
+  "vkUrl": "https://vk.com/advokat_petrov",
+  "maxUrl": "https://max.ru/advokat_petrov",
+  "whatsappUrl": "https://wa.me/79031234567",
+  "telegramUrl": "https://t.me/advokat_petrov",
+  "photos": {
+    "hero": "/images/attorney/hero.webp",
+    "working": "/images/attorney/working.webp",
+    "passport": "/images/attorney/passport.webp"
+  }
+}
