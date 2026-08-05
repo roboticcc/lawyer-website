@@ -21,7 +21,7 @@ const links = [
 </script>
 
 <template>
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-2">
     <a
       v-for="link in links"
       :key="link.key"
@@ -29,11 +29,11 @@ const links = [
       :target="link.external ? '_blank' : undefined"
       :rel="link.external ? 'noopener noreferrer' : undefined"
       :aria-label="link.label"
-      class="w-10 h-10 flex items-center justify-center rounded-full transition-colors"
+      class="flex h-9 w-9 items-center justify-center rounded-full border transition-colors"
       :class="
         variant === 'dark'
-          ? 'bg-white/10 hover:bg-white/20 text-white'
-          : 'bg-primary-50 hover:bg-primary-100 text-primary-700'
+          ? 'border-white/20 text-primary-100 hover:border-primary-500 hover:bg-primary-500 hover:text-[#191917]'
+          : 'border-black/20 text-[#191917] hover:border-primary-600 hover:bg-primary-500'
       "
     >
       <svg

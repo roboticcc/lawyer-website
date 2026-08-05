@@ -52,11 +52,11 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <form
-    class="space-y-6"
+    class="space-y-7 text-[#191917]"
     @submit="onSubmit"
   >
     <fieldset class="space-y-4">
-      <legend class="text-lg font-semibold mb-2">
+      <legend class="mb-5 font-serif text-xl uppercase">
         Свяжитесь с нами
       </legend>
 
@@ -99,7 +99,7 @@ const onSubmit = handleSubmit(async (values) => {
 
     <button
       type="submit"
-      class="px-8 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors disabled:bg-primary-300"
+      class="button-primary disabled:opacity-50"
       :disabled="isSubmitting"
     >
       <span v-if="!isSubmitting">Отправить сообщение</span>

@@ -16,15 +16,15 @@ const inputId = computed(() => `field-${props.name}`)
   <div>
     <label
       :for="inputId"
-      class="block text-sm font-medium text-gray-700 mb-1"
+      class="form-label"
     >{{ label }}</label>
     <textarea
       :id="inputId"
       v-model="value"
       :placeholder="placeholder"
       rows="4"
-      class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-      :class="errorMessage ? 'border-red-500' : 'border-gray-300'"
+      class="form-field resize-none"
+      :class="errorMessage ? '!border-red-600' : ''"
     />
     <p
       v-if="errorMessage"

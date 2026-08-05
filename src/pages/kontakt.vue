@@ -19,14 +19,15 @@ useAttorneySchema(attorneyStore.attorney)
 
 <template>
   <MainLayout>
-    <section class="py-16 px-4 max-w-7xl mx-auto">
-      <h1 class="mb-12 text-center">
+    <section class="section-paper site-section">
+      <div class="site-container">
+      <h1 class="display-title mb-16 max-w-5xl">
         Контакты
       </h1>
 
-      <div class="grid md:grid-cols-2 gap-12">
+      <div class="grid gap-12 border-t border-black/20 pt-10 md:grid-cols-2 md:gap-24">
         <div>
-          <h2 class="mb-4">
+          <h2 class="mb-8 text-4xl uppercase">
             Как с нами связаться
           </h2>
           <p class="mb-2">
@@ -35,15 +36,15 @@ useAttorneySchema(attorneyStore.attorney)
           <p class="mb-2">
             <a
               :href="`mailto:${CONTACT_EMAIL}`"
-              class="text-blue-600 hover:text-blue-700"
+              class="text-primary-800 underline underline-offset-4 hover:text-primary-600"
             >
               {{ CONTACT_EMAIL }}
             </a>
           </p>
-          <p class="text-gray-600 mt-4">
+          <p class="mt-8 text-black/60">
             {{ attorneyStore.attorney.address }}
           </p>
-          <p class="text-gray-600">
+          <p class="text-black/60">
             {{ attorneyStore.attorney.city }}, {{ attorneyStore.attorney.postalCode }}
           </p>
         </div>
@@ -51,6 +52,7 @@ useAttorneySchema(attorneyStore.attorney)
         <div>
           <ContactForm />
         </div>
+      </div>
       </div>
     </section>
   </MainLayout>

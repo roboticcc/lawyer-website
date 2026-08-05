@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import Logo from '@/components/ui/Logo.vue'
 import SocialIcons from '@/components/ui/SocialIcons.vue'
+import PhoneLink from '@/components/ui/PhoneLink.vue'
 
 const isMenuOpen = ref(false)
 
@@ -21,67 +22,60 @@ const closeMenu = () => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 bg-white shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#191917]/95 backdrop-blur-xl">
+    <div class="site-container flex h-20 items-center justify-between gap-8">
       <Logo />
 
       <nav
-        class="hidden lg:flex items-center gap-8"
+        class="hidden items-center gap-7 lg:flex"
         aria-label="Основная навигация"
       >
         <RouterLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="text-gray-700 hover:text-primary-600 transition-colors no-underline"
+          class="border-b border-transparent py-2 text-xs uppercase tracking-[0.12em] text-[#c7c2b9] no-underline transition-colors hover:border-primary-500 hover:text-primary-50"
         >
           {{ link.label }}
         </RouterLink>
       </nav>
 
-      <div class="hidden lg:flex items-center">
-        <SocialIcons />
+      <div class="hidden items-center gap-5 lg:flex">
+        <PhoneLink class="text-sm text-primary-300" />
+        <SocialIcons variant="dark" />
       </div>
 
       <button
         type="button"
-        class="lg:hidden p-2"
+        class="relative h-11 w-11 border border-white/20 text-primary-50 lg:hidden"
         aria-label="Открыть меню"
         :aria-expanded="isMenuOpen"
         @click="toggleMenu"
       >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
+        <span class="absolute left-3 right-3 top-[14px] h-px bg-current transition-transform" :class="{ 'translate-y-[6px] rotate-45': isMenuOpen }" />
+        <span class="absolute left-3 right-3 top-[20px] h-px bg-current transition-opacity" :class="{ 'opacity-0': isMenuOpen }" />
+        <span class="absolute left-3 right-3 top-[26px] h-px bg-current transition-transform" :class="{ '-translate-y-[6px] -rotate-45': isMenuOpen }" />
       </button>
     </div>
 
     <nav
       v-if="isMenuOpen"
-      class="lg:hidden border-t border-gray-100 px-4 py-4 flex flex-col gap-4"
+      class="site-container flex flex-col gap-1 border-t border-white/10 py-5 lg:hidden"
       aria-label="Мобильная навигация"
     >
       <RouterLink
         v-for="link in navLinks"
         :key="link.to"
         :to="link.to"
-        class="text-gray-700 hover:text-primary-600 no-underline"
+        class="border-b border-white/10 py-4 text-sm uppercase tracking-[0.12em] text-primary-50 no-underline hover:text-primary-300"
         @click="closeMenu"
       >
         {{ link.label }}
       </RouterLink>
-      <SocialIcons />
+      <div class="flex items-center justify-between pt-4">
+        <PhoneLink class="text-sm text-primary-300" />
+        <SocialIcons variant="dark" />
+      </div>
     </nav>
   </header>
 </template>

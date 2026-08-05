@@ -9,10 +9,10 @@ const props = defineProps<{
 <template>
   <section
     v-if="services.some((s) => s.pricing?.length)"
-    class="py-16 px-4 bg-white"
+    class="section-paper site-section"
   >
-    <div class="max-w-4xl mx-auto">
-      <h2 class="mb-8 text-center">
+    <div class="site-container max-w-5xl">
+      <h2 class="display-title mb-12">
         Стоимость услуг
       </h2>
 
@@ -23,7 +23,7 @@ const props = defineProps<{
       >
         <h3
           v-if="services.length > 1"
-          class="mb-4"
+          class="mb-6 uppercase"
         >
           {{ service.title }}
         </h3>
@@ -32,16 +32,16 @@ const props = defineProps<{
             Стоимость услуг: {{ service.title }}
           </caption>
           <thead>
-            <tr class="border-b-2 border-gray-200">
+            <tr class="border-b border-black/30">
               <th
                 scope="col"
-                class="text-left py-3 text-gray-600 font-semibold"
+                class="py-4 text-left text-xs font-semibold uppercase tracking-[0.12em] text-black/50"
               >
                 Услуга
               </th>
               <th
                 scope="col"
-                class="text-right py-3 text-gray-600 font-semibold"
+                class="py-4 text-right text-xs font-semibold uppercase tracking-[0.12em] text-black/50"
               >
                 Стоимость
               </th>
@@ -51,12 +51,12 @@ const props = defineProps<{
             <tr
               v-for="item in service.pricing"
               :key="item.service"
-              class="border-b border-gray-100"
+              class="border-b border-black/15"
             >
-              <td class="py-3">
+              <td class="py-5">
                 {{ item.service }}
               </td>
-              <td class="py-3 text-right font-semibold text-primary-700">
+              <td class="py-5 text-right font-semibold text-primary-800">
                 {{ item.price }}
               </td>
             </tr>

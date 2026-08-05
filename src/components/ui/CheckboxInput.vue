@@ -17,18 +17,18 @@ const inputId = computed(() => `field-${props.name}`)
         :id="inputId"
         v-model="value"
         type="checkbox"
-        class="mt-1"
+        class="mt-1 accent-primary-600"
         :aria-invalid="!!errorMessage"
         required
       >
       <label
         :for="inputId"
-        class="text-sm text-gray-500"
+        class="text-sm leading-relaxed text-black/55"
       >
         Отправляя форму, вы подтверждаете согласие с условиями
         <RouterLink
           to="/policy"
-          class="text-blue-600 underline"
+          class="text-primary-800 underline underline-offset-2"
           target="_blank"
         >
           обработки персональных данных

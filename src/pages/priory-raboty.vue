@@ -15,13 +15,15 @@ useHowToSchema(workSteps)
 
 <template>
   <MainLayout>
-    <section class="py-16 px-4 max-w-7xl mx-auto text-center">
-      <h1 class="mb-6">
+    <section class="section-soft site-section--compact">
+      <div class="site-container grid gap-8 border-b border-white/15 pb-10 md:grid-cols-[1fr_0.7fr] md:items-end">
+      <h1 class="display-title">
         Порядок работы
       </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="max-w-xl text-lg text-[#b9b5ad]">
         Прозрачный и понятный процесс защиты ваших интересов на каждом этапе
       </p>
+      </div>
     </section>
 
     <WorkProcess :steps="workSteps" />

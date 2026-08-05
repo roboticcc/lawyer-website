@@ -17,10 +17,10 @@ useFaqSchema(faqStore.faqItems)
 
 <template>
   <MainLayout>
-    <section class="py-16 px-4 max-w-7xl mx-auto text-center">
-      <h1 class="mb-6">
-        Вопросы и ответы
-      </h1>
+    <section class="section-soft site-section--compact">
+      <div class="site-container border-b border-white/15 pb-10">
+        <h1 class="display-title max-w-5xl">Вопросы и ответы</h1>
+      </div>
     </section>
 
     <FaqAccordion :faq-items="faqStore.faqItems" />

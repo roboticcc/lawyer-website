@@ -9,58 +9,58 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="bg-gray-800 text-white mt-16 pt-12 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+  <footer class="border-t border-white/10 bg-[#131312] pb-8 pt-16 text-primary-50">
+    <div class="site-container grid gap-12 md:grid-cols-3">
       <div>
-        <h4 class="text-white mb-4">
+        <p class="eyebrow mb-5">
           {{ SITE_NAME }}
-        </h4>
+        </p>
         <RouterLink
           to="/policy"
-          class="block text-gray-300 hover:text-white underline"
+          class="block text-sm text-[#aaa69e] underline underline-offset-4 hover:text-primary-200"
           target="_blank"
         >
           © Политика конфиденциальности
         </RouterLink>
-        <PhoneLink class="block mt-4 text-white" />
+        <PhoneLink class="mt-7 block text-primary-200" />
         <a
           :href="`mailto:${CONTACT_EMAIL}`"
-          class="block text-gray-300 hover:text-white mt-2"
+          class="mt-2 block text-sm text-[#aaa69e] hover:text-primary-200"
         >
           {{ CONTACT_EMAIL }}
         </a>
       </div>
 
       <div>
-        <h4 class="text-white mb-4">
+        <h4 class="mb-5 text-primary-50">
           Реквизиты адвоката
         </h4>
-        <p class="text-gray-300 text-sm">
+        <p class="text-sm text-[#aaa69e]">
           {{ attorneyStore.attorney.fullName }}
         </p>
-        <p class="text-gray-300 text-sm">
+        <p class="text-sm text-[#aaa69e]">
           Рег. номер: {{ attorneyStore.attorney.regNumber }}
         </p>
-        <p class="text-gray-300 text-sm">
+        <p class="text-sm text-[#aaa69e]">
           {{ attorneyStore.attorney.address }}
         </p>
-        <p class="text-gray-300 text-sm">
+        <p class="text-sm text-[#aaa69e]">
           ИНН: {{ attorneyStore.attorney.inn }}
         </p>
-        <p class="text-gray-300 text-sm">
+        <p class="text-sm text-[#aaa69e]">
           ОГРН: {{ attorneyStore.attorney.ogrn }}
         </p>
       </div>
 
       <div>
-        <h4 class="text-white mb-4">
+        <h4 class="mb-5 text-primary-50">
           Связаться с нами
         </h4>
         <SocialIcons variant="dark" />
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-gray-700 text-sm text-gray-400">
+    <div class="site-container mt-12 border-t border-white/10 pt-6 text-xs uppercase tracking-[0.12em] text-[#77746e]">
       © {{ year }} {{ attorneyStore.attorney.fullName }}. Все права защищены.
     </div>
   </footer>

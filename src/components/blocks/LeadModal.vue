@@ -34,16 +34,16 @@ onBeforeUnmount(() => {
   <Teleport to="body">
     <div
       v-if="uiStore.isLeadModalOpen"
-      class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-[100]"
+      class="modal-backdrop fixed inset-0 z-[100] flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="lead-modal-title"
       @click.self="uiStore.closeLeadModal()"
     >
-      <div class="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 relative">
+      <div class="modal-panel relative w-full max-w-md p-6 md:p-9">
         <button
           type="button"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+          class="absolute right-4 top-4 text-black/40 hover:text-black"
           aria-label="Закрыть"
           @click="uiStore.closeLeadModal()"
         >
@@ -52,11 +52,11 @@ onBeforeUnmount(() => {
 
         <h2
           id="lead-modal-title"
-          class="text-2xl mb-2"
+          class="mb-3 text-3xl uppercase"
         >
           Записаться на разбор дела
         </h2>
-        <p class="text-gray-600 mb-6">
+        <p class="mb-7 text-black/60">
           Оставьте имя и телефон — мы свяжемся с вами в ближайшее время
         </p>
 
@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
 
         <a
           :href="`tel:${attorneyStore.attorney.phone}`"
-          class="mt-4 flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary-500 text-primary-600 rounded-full hover:bg-primary-50 transition-colors font-semibold no-underline"
+          class="button-outline mt-4 w-full"
         >
           Позвонить сейчас
         </a>

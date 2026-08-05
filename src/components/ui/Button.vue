@@ -11,9 +11,9 @@ withDefaults(
 defineEmits<{ click: [MouseEvent] }>()
 
 const variantClasses: Record<string, string> = {
-  primary: 'bg-primary-500 text-white hover:bg-primary-600 disabled:bg-primary-300',
-  secondary: 'bg-secondary-500 text-white hover:bg-secondary-600',
-  outline: 'border-2 border-primary-500 text-primary-600 hover:bg-primary-50',
+  primary: 'button-primary disabled:opacity-50',
+  secondary: 'button-primary disabled:opacity-50',
+  outline: 'button-outline',
 }
 </script>
 
@@ -21,7 +21,7 @@ const variantClasses: Record<string, string> = {
   <button
     :type="type"
     :disabled="disabled"
-    class="px-8 py-3 rounded-full font-semibold transition-colors inline-flex items-center justify-center gap-2 disabled:cursor-not-allowed"
+    class="inline-flex items-center justify-center gap-2 disabled:cursor-not-allowed"
     :class="variantClasses[variant]"
     @click="$emit('click', $event)"
   >

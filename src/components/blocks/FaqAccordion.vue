@@ -10,45 +10,38 @@ const faqStore = useFaqStore()
 </script>
 
 <template>
-  <section class="py-12 px-4 max-w-4xl mx-auto">
-    <div class="bg-white shadow-lg rounded-2xl p-6 md:p-10">
-      <h2 class="mb-8">
+  <section class="section-ink site-section">
+    <div class="site-container grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20">
+      <h2 class="display-title">
         Вопросы и ответы
       </h2>
 
-      <ul class="divide-y divide-gray-100">
+      <ul class="border-t border-white/15">
         <li
           v-for="item in faqItems"
           :key="item.id"
+          class="border-b border-white/15"
         >
           <button
             type="button"
-            class="w-full flex justify-between items-center gap-4 py-4 text-left"
+            class="flex w-full items-center justify-between gap-6 py-7 text-left transition-colors hover:text-primary-300"
             :aria-expanded="faqStore.isExpanded(item.id)"
             :aria-controls="`faq-answer-${item.id}`"
             @click="faqStore.toggleItem(item.id)"
           >
-            <span class="font-semibold text-gray-900">{{ item.question }}</span>
-            <svg
-              class="w-5 h-5 flex-shrink-0 transition-transform"
+            <span class="font-serif text-xl leading-tight md:text-2xl">{{ item.question }}</span>
+            <span
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary-500/60 text-2xl font-light leading-none text-primary-300 transition-transform"
               :class="{ 'rotate-180': faqStore.isExpanded(item.id) }"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+              ↓
+            </span>
           </button>
           <div
             v-if="faqStore.isExpanded(item.id)"
             :id="`faq-answer-${item.id}`"
-            class="pb-4 text-gray-600"
+            class="max-w-2xl pb-7 pr-12 text-[#aaa69e]"
           >
             {{ item.answer }}
           </div>

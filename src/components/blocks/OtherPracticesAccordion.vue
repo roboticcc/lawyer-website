@@ -16,34 +16,46 @@ const toggleGroup = (id: string) => {
 }
 
 const isOpen = (id: string) => openGroups.value.includes(id)
+
+const formatGroupNumber = (index: number) => String(index + 1).padStart(2, '0')
+const cleanGroupTitle = (title: string) => title.replace(/^[^\p{L}\p{N}]+/u, '')
 </script>
 
 <template>
   <section
     id="other-practices"
-    class="py-16 px-4 bg-white"
+    class="section-paper site-section"
   >
-    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-      <div>
-        <h2>Другие направления правовой поддержки</h2>
+    <div class="site-container grid min-w-0 gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
+      <div class="min-w-0">
+        <h2 class="display-title text-balance text-[clamp(2.5rem,4.2vw,4.25rem)] leading-[0.95] [hyphens:none]">
+          Другие направления правовой поддержки
+        </h2>
       </div>
 
-      <div class="md:col-span-2 space-y-4">
+      <div class="min-w-0 border-t border-black/20">
         <article
-          v-for="group in groups"
+          v-for="(group, index) in groups"
           :key="group.id"
-          class="border border-gray-200 rounded-2xl overflow-hidden"
+          class="border-b border-black/20"
         >
           <button
             type="button"
-            class="w-full flex justify-between items-center gap-4 p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors"
+            class="flex w-full items-center justify-between gap-6 py-7 text-left transition-colors hover:text-primary-700"
             :aria-expanded="isOpen(group.id)"
             :aria-controls="`other-practice-${group.id}`"
             @click="toggleGroup(group.id)"
           >
-            <span class="font-semibold text-gray-900">{{ group.title }}</span>
+            <span class="grid min-w-0 grid-cols-[2.5rem_minmax(0,1fr)] items-start gap-4 md:grid-cols-[3.5rem_minmax(0,1fr)] md:gap-6">
+              <span class="pt-1 font-serif text-base text-primary-700 md:text-lg">
+                {{ formatGroupNumber(index) }}
+              </span>
+              <span class="min-w-0 break-normal font-serif text-xl uppercase leading-tight [hyphens:none] md:text-2xl">
+                {{ cleanGroupTitle(group.title) }}
+              </span>
+            </span>
             <span
-              class="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-primary-500 text-white text-lg leading-none transition-transform"
+              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary-700 text-2xl font-light leading-none text-primary-700 transition-transform"
               :class="{ 'rotate-45': isOpen(group.id) }"
               aria-hidden="true"
             >
@@ -54,16 +66,16 @@ const isOpen = (id: string) => openGroups.value.includes(id)
           <ul
             v-if="isOpen(group.id)"
             :id="`other-practice-${group.id}`"
-            class="p-5 space-y-4"
+            class="space-y-6 pb-8 pl-0 md:pl-12"
           >
             <li
               v-for="item in group.items"
               :key="item.title"
             >
-              <p class="font-semibold text-gray-900">
+              <p class="font-semibold text-black/85">
                 {{ item.title }}
               </p>
-              <p class="text-gray-600 text-sm mt-1">
+              <p class="mt-1 max-w-2xl text-sm text-black/55">
                 {{ item.description }}
               </p>
             </li>

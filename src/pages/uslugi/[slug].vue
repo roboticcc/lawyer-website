@@ -30,17 +30,19 @@ if (service.value) {
     <template v-if="service">
       <ServiceHero :service="service" />
 
-      <section class="py-16 px-4 max-w-4xl mx-auto">
-        <p class="text-lg text-gray-700 leading-relaxed">
+      <section class="section-ink site-section--compact">
+        <div class="site-container max-w-4xl border-l border-primary-500/60 pl-7 md:pl-12">
+        <p class="font-serif text-2xl leading-relaxed text-[#c7c2b9] md:text-3xl">
           {{ service.longDescription }}
         </p>
+        </div>
       </section>
 
       <PricingBlock :services="[service]" />
 
-      <section class="py-16 px-4 bg-white">
-        <div class="max-w-2xl mx-auto">
-          <h2 class="mb-8 text-center">
+      <section class="section-paper site-section border-t border-black/15">
+        <div class="site-container max-w-2xl">
+          <h2 class="display-title mb-12">
             Получить консультацию
           </h2>
           <ConsultationForm :service-name="service.title" />
@@ -50,14 +52,14 @@ if (service.value) {
 
     <section
       v-else
-      class="py-24 px-4 text-center"
+      class="section-ink site-section text-center"
     >
       <h1 class="mb-4">
         Услуга не найдена
       </h1>
       <RouterLink
         to="/uslugi"
-        class="text-secondary-600 underline"
+        class="mt-7 inline-block text-primary-300 underline underline-offset-4"
       >
         Вернуться к списку услуг
       </RouterLink>

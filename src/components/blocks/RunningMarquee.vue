@@ -7,7 +7,7 @@ const text = `Адвокат ${attorneyStore.attorney.fullName} • Профес
 
 <template>
   <div
-    class="marquee-wrapper bg-gray-900 text-white py-3 overflow-hidden"
+    class="marquee-wrapper overflow-hidden border-y border-primary-500/35 bg-[#131312] py-4 text-primary-300"
     aria-hidden="true"
   >
     <div class="marquee-track">
@@ -32,9 +32,11 @@ const text = `Адвокат ${attorneyStore.attorney.fullName} • Профес
 }
 
 .marquee-item {
-  padding-right: 1rem;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  padding-right: 1.5rem;
+  font-family: "Iowan Old Style", Baskerville, "Times New Roman", serif;
+  font-size: 1rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 @keyframes marquee-scroll {

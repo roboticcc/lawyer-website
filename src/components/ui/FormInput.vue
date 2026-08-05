@@ -18,7 +18,7 @@ const inputId = computed(() => `field-${props.name}`)
   <div>
     <label
       :for="inputId"
-      class="block text-sm font-medium text-gray-700 mb-1"
+      class="form-label"
     >{{ label }}</label>
     <input
       :id="inputId"
@@ -28,8 +28,8 @@ const inputId = computed(() => `field-${props.name}`)
       :autocomplete="autocomplete"
       :aria-invalid="!!errorMessage"
       :aria-describedby="errorMessage ? `${inputId}-error` : undefined"
-      class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-      :class="errorMessage ? 'border-red-500' : 'border-gray-300'"
+      class="form-field"
+      :class="errorMessage ? '!border-red-600' : ''"
     >
     <p
       v-if="errorMessage"

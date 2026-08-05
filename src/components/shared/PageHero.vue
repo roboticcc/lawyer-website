@@ -14,34 +14,34 @@ defineProps<{
 </script>
 
 <template>
-  <section class="py-16 px-4">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  <section class="section-soft site-section relative overflow-hidden">
+    <div class="site-container grid items-center gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-20">
       <div>
-        <h1 class="mb-6">
+        <h1 class="display-title max-w-5xl">
           {{ title }}
         </h1>
         <p
           v-if="subtitle"
-          class="text-xl text-gray-600 mb-8"
+          class="mb-9 mt-8 max-w-2xl border-t border-white/15 pt-6 text-lg text-[#b9b5ad]"
         >
           {{ subtitle }}
         </p>
 
         <div
           v-if="actionButton || secondaryButton"
-          class="flex flex-col sm:flex-row gap-4 mb-8"
+          class="mb-8 flex flex-col gap-3 sm:flex-row"
         >
           <a
             v-if="actionButton"
             :href="actionButton.href"
-            class="px-8 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors text-center font-semibold"
+            class="button-primary"
           >
             {{ actionButton.text }}
           </a>
           <a
             v-if="secondaryButton"
             :href="secondaryButton.href"
-            class="px-8 py-3 border-2 border-primary-500 text-primary-600 rounded-full hover:bg-primary-50 transition-colors text-center font-semibold"
+            class="button-outline"
           >
             {{ secondaryButton.text }}
           </a>

@@ -11,10 +11,10 @@ usePageSeo(
 
 <template>
   <MinimalLayout>
-    <div class="text-center py-12">
-      <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-100 flex items-center justify-center">
+    <div class="modal-panel px-8 py-12 text-center md:px-14">
+      <div class="mx-auto mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-primary-700">
         <svg
-          class="w-8 h-8 text-primary-600"
+          class="h-8 w-8 text-primary-700"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -28,15 +28,15 @@ usePageSeo(
           />
         </svg>
       </div>
-      <h1 class="mb-4">
+      <h1 class="mb-5 text-5xl uppercase">
         Спасибо за обращение!
       </h1>
-      <p class="text-gray-600 mb-8">
+      <p class="mb-8 text-black/60">
         Мы оперативно свяжемся с вами в ближайшее время.
       </p>
       <RouterLink
         to="/"
-        class="inline-flex px-8 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors no-underline"
+        class="button-primary"
       >
         Вернуться на главную
       </RouterLink>

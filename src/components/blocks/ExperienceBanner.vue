@@ -30,24 +30,24 @@ watch(isVisible, (visible) => {
 </script>
 
 <template>
-  <section class="py-12 px-4 bg-white">
+  <section class="section-ink site-section--compact">
     <div
       ref="rootEl"
-      class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 bg-gray-900 text-white rounded-2xl overflow-hidden"
+      class="site-container grid grid-cols-1 border-y border-white/15 sm:grid-cols-2 sm:divide-x sm:divide-white/15"
     >
-      <div class="p-8 text-center">
-        <div class="text-5xl font-mono font-bold text-primary-400 tabular-nums">
+      <div class="border-b border-white/15 py-10 sm:border-b-0 sm:px-10 sm:py-14">
+        <div class="font-serif text-[clamp(3.5rem,8vw,7rem)] font-normal leading-none text-primary-300 tabular-nums">
           более {{ casesCount }}
         </div>
-        <p class="mt-2 text-gray-300">
+        <p class="mt-4 max-w-sm text-xs uppercase tracking-[0.14em] text-[#aaa69e]">
           Успешно завершенных судебных процессов
         </p>
       </div>
-      <div class="p-8 text-center">
-        <div class="text-5xl font-mono font-bold text-primary-400 tabular-nums">
+      <div class="py-10 sm:px-10 sm:py-14">
+        <div class="font-serif text-[clamp(3.5rem,8vw,7rem)] font-normal leading-none text-primary-300 tabular-nums">
           {{ yearsCount }}
         </div>
-        <p class="mt-2 text-gray-300">
+        <p class="mt-4 max-w-sm text-xs uppercase tracking-[0.14em] text-[#aaa69e]">
           Лет непрерывного юридического стажа
         </p>
       </div>

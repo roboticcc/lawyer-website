@@ -5,9 +5,9 @@ import LeadModal from '@/components/blocks/LeadModal.vue'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen bg-[#191917] text-primary-50">
     <MainHeader />
-    <main class="flex-grow">
+    <main>
       <slot />
     </main>
     <MainFooter />

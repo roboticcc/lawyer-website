@@ -3,7 +3,6 @@ import type { PropType } from 'vue'
 import type { Service } from '@/types'
 import PageHero from '@/components/shared/PageHero.vue'
 import { useAttorneyStore } from '@/stores/attorney'
-import { generateAttorneyAltText } from '@/utils/seo'
 
 const props = defineProps({
   service: {
@@ -30,29 +29,21 @@ const attorneyStore = useAttorneyStore()
     }"
   >
     <template #image>
-      <img
-        :src="attorneyStore.attorney.photos.working"
-        :alt="generateAttorneyAltText(attorneyStore.attorney, props.service)"
-        class="w-full h-auto rounded-2xl shadow-xl"
-        loading="eager"
-        fetchpriority="high"
-        width="640"
-        height="480"
-      >
+      <div class="abstract-portrait" aria-hidden="true" />
     </template>
 
     <template #details>
-      <div class="flex items-center gap-4 mt-4 text-sm">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-primary-500 rounded-full" />
+      <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs uppercase tracking-[0.1em] text-[#aaa69e]">
+        <div class="flex items-center gap-2.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
           <span>{{ attorneyStore.attorney.experienceYears }} лет стажа</span>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-secondary-500 rounded-full" />
+        <div class="flex items-center gap-2.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
           <span>{{ attorneyStore.attorney.casesWon }}+ успешных дел</span>
         </div>
       </div>
-      <p class="mt-4 text-lg font-bold text-gray-900">
+      <p class="mt-5 font-serif text-2xl text-primary-300">
         {{ props.service.price }}
       </p>
     </template>

@@ -14,8 +14,9 @@ usePageSeo(
 
 <template>
   <MainLayout>
-    <section class="py-16 px-4 max-w-3xl mx-auto prose">
-      <h1 class="mb-8">
+    <section class="section-paper site-section">
+      <div class="site-container max-w-3xl text-lg text-black/65">
+      <h1 class="display-title mb-12 text-[#191917]">
         Политика обработки персональных данных
       </h1>
 
@@ -24,7 +25,7 @@ usePageSeo(
         адвокатом {{ attorneyStore.attorney.fullName }} (рег. номер {{ attorneyStore.attorney.regNumber }}).
       </p>
 
-      <h2 class="mb-4">
+      <h2 class="mb-4 mt-12 text-3xl uppercase text-[#191917]">
         1. Общие положения
       </h2>
       <p class="mb-4">
@@ -32,7 +33,7 @@ usePageSeo(
         целях предоставления юридических консультаций и обратной связи.
       </p>
 
-      <h2 class="mb-4">
+      <h2 class="mb-4 mt-12 text-3xl uppercase text-[#191917]">
         2. Состав обрабатываемых данных
       </h2>
       <p class="mb-4">
@@ -40,7 +41,7 @@ usePageSeo(
         пользователем в тексте обращения.
       </p>
 
-      <h2 class="mb-4">
+      <h2 class="mb-4 mt-12 text-3xl uppercase text-[#191917]">
         3. Цели обработки
       </h2>
       <p class="mb-4">
@@ -48,13 +49,14 @@ usePageSeo(
         юридической помощи и не передаются третьим лицам без согласия пользователя.
       </p>
 
-      <h2 class="mb-4">
+      <h2 class="mb-4 mt-12 text-3xl uppercase text-[#191917]">
         4. Контакты
       </h2>
       <p>
         По вопросам обработки персональных данных обращайтесь по адресу:
         {{ attorneyStore.attorney.email }}
       </p>
+      </div>
     </section>
   </MainLayout>
 </template>

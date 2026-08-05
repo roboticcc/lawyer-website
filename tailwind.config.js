@@ -5,28 +5,28 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
+          50: '#f2efe8',
+          100: '#e7dfd2',
+          200: '#d5c7b5',
+          300: '#c2ae95',
+          400: '#b39d81',
+          500: '#ac987e',
+          600: '#8f795e',
+          700: '#735f48',
+          800: '#5a4a39',
+          900: '#44372c',
         },
         secondary: {
-          500: '#3b82f6',
-          600: '#2563eb',
+          500: '#ac987e',
+          600: '#8f795e',
         },
         tertiary: {
-          500: '#7c3aed',
+          500: '#f2efe8',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ['Iowan Old Style', 'Baskerville', 'Times New Roman', 'serif'],
       },
       maxWidth: {
         '7xl': '80rem',

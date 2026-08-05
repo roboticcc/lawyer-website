@@ -26,87 +26,85 @@ const closeCase = () => {
 <template>
   <section
     id="cases"
-    class="py-16 px-4 max-w-7xl mx-auto"
+    class="section-ink site-section"
   >
-    <h2 class="mb-12 text-center">
-      Реальные примеры из практики
-    </h2>
+    <div class="site-container">
+      <div class="section-intro">
+        <h2 class="display-title">
+          Реальные примеры из практики
+        </h2>
+        <div class="hidden h-px bg-white/20 md:block" />
+      </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article
-        v-for="caseStudy in visibleCases"
-        :key="caseStudy.id"
-        class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
-      >
-        <img
-          :src="caseStudy.imageUrl"
-          :alt="`Судебное дело: ${caseStudy.title}`"
-          class="w-full h-48 object-cover"
-          loading="lazy"
-          width="400"
-          height="192"
+      <div class="grid grid-cols-1 border-l border-t border-white/15 md:grid-cols-2">
+        <article
+          v-for="caseStudy in visibleCases"
+          :key="caseStudy.id"
+          class="group flex min-h-[24rem] flex-col border-b border-r border-white/15 p-7 transition-colors hover:bg-white/[0.035] md:p-9"
         >
-        <div class="p-6 flex flex-col flex-grow">
-          <span class="text-sm text-primary-600 font-semibold uppercase tracking-wide">
-            {{ caseStudy.category }}
-          </span>
-          <h3 class="mt-2 mb-3">
-            {{ caseStudy.title }}
+          <div class="flex items-start justify-between gap-6">
+            <span class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary-400">
+              {{ caseStudy.category }}
+            </span>
+            <span class="font-serif text-2xl text-white/30">{{ caseStudy.year }}</span>
+          </div>
+          <h3 class="mb-6 mt-auto max-w-xl uppercase text-primary-50 transition-colors group-hover:text-primary-300">
+              {{ caseStudy.title }}
           </h3>
-          <p class="text-gray-600 flex-grow">
-            {{ caseStudy.result }}
+          <p class="border-t border-white/15 pt-5 text-sm text-[#aaa69e]">
+              {{ caseStudy.result }}
           </p>
           <button
-            type="button"
-            class="mt-4 text-secondary-600 font-semibold hover:text-secondary-700 text-left"
-            @click="openCase(caseStudy)"
-          >
-            Изучить решение суда →
+              type="button"
+              class="mt-6 self-start text-xs font-semibold uppercase tracking-[0.1em] text-primary-300 underline decoration-primary-500/50 underline-offset-8 hover:text-primary-50"
+              @click="openCase(caseStudy)"
+            >
+              Изучить решение суда →
           </button>
-        </div>
-      </article>
-    </div>
+        </article>
+      </div>
 
-    <div
-      v-if="!showAll && cases.length > visibleCount"
-      class="mt-10 text-center"
-    >
-      <button
-        type="button"
-        class="px-8 py-3 border-2 border-primary-500 text-primary-600 rounded-full hover:bg-primary-50 transition-colors font-semibold"
-        @click="showAll = true"
+      <div
+        v-if="!showAll && cases.length > visibleCount"
+        class="mt-10 flex justify-end"
       >
-        Показать еще
-      </button>
+        <button
+          type="button"
+          class="button-outline"
+          @click="showAll = true"
+        >
+          Показать еще
+        </button>
+      </div>
     </div>
 
     <div
       v-if="activeCase"
-      class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+      class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       :aria-label="activeCase.title"
       @click.self="closeCase"
     >
-      <div class="bg-white rounded-2xl max-w-lg w-full p-8 relative">
+      <div class="modal-panel relative w-full max-w-lg p-8 md:p-10">
         <button
           type="button"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+          class="absolute right-4 top-4 text-black/40 hover:text-black"
           aria-label="Закрыть"
           @click="closeCase"
         >
           ✕
         </button>
-        <span class="text-sm text-primary-600 font-semibold uppercase tracking-wide">
+        <span class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary-700">
           {{ activeCase.category }} • {{ activeCase.year }}
         </span>
-        <h3 class="mt-2 mb-4">
+        <h3 class="mb-5 mt-3 uppercase">
           {{ activeCase.title }}
         </h3>
-        <p class="text-gray-600 mb-4">
+        <p class="mb-4 text-black/60">
           {{ activeCase.description }}
         </p>
-        <p class="font-semibold text-primary-700">
+        <p class="border-t border-black/20 pt-5 font-semibold text-primary-800">
           {{ activeCase.result }}
         </p>
       </div>
