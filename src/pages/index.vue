@@ -22,18 +22,27 @@ const faqStore = useFaqStore()
 
 usePageSeo(
   `Адвокат ${attorneyStore.attorney.fullName} в Омске | Юридическая помощь`,
-  'Адвокат Игорь Мосензов в Омске: защита по уголовным делам, представительство в гражданских и административных спорах. Связь напрямую через почту и мессенджеры.'
+  'Адвокат Игорь Мосензов в Омске: защита по уголовным делам, представительство в гражданских и административных спорах. Связь напрямую по телефону, почте и в мессенджерах.'
 )
 
 useAttorneySchema(attorneyStore.attorney, servicesStore.services)
 useWebSiteSchema()
-useHead({ link: [{ rel: 'preload', as: 'image', href: '/images/legal-office.webp' }] })
+useHead({ link: [{ rel: 'preload', as: 'image', href: attorneyStore.attorney.photos.hero }] })
 
 </script>
 
 <template>
   <MainLayout>
     <section class="editorial-hero">
+      <img
+        :src="attorneyStore.attorney.photos.hero"
+        alt="Иллюстративный портрет адвоката в рабочем кабинете"
+        width="1774"
+        height="887"
+        fetchpriority="high"
+        decoding="async"
+        class="editorial-hero__image"
+      >
       <div class="site-container hero-layout">
         <div class="hero-content">
           <span class="eyebrow">{{ attorneyStore.attorney.fullName }}</span>
@@ -56,7 +65,6 @@ useHead({ link: [{ rel: 'preload', as: 'image', href: '/images/legal-office.webp
     <ServicesGrid
       :services="servicesStore.mainCatalog"
       title="Чем я могу помочь"
-      description="Выберите направление, чтобы посмотреть, как строится работа и из чего складывается стоимость."
       :show-link-to-all="true"
     />
 

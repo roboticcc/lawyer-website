@@ -12,6 +12,7 @@ const navLinks = [
   { to: '/faq', label: 'Вопросы и ответы' },
   { to: '/kontakt', label: 'Контакты' },
 ]
+const desktopNavLinks = navLinks.filter((link) => link.to !== '/kontakt')
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -32,7 +33,7 @@ const closeMenu = () => {
         aria-label="Основная навигация"
       >
         <RouterLink
-          v-for="link in navLinks"
+          v-for="link in desktopNavLinks"
           :key="link.to"
           :to="link.to"
           class="border-b border-transparent py-2 text-xs uppercase tracking-[0.12em] text-[#c7c2b9] no-underline transition-colors hover:border-primary-500 hover:text-primary-50"
@@ -43,9 +44,13 @@ const closeMenu = () => {
 
       <RouterLink
         to="/kontakt"
-        class="button-outline hidden lg:inline-flex"
+        class="header-contact-link hidden lg:inline-flex"
       >
         Связаться
+        <span
+          class="header-contact-link__arrow"
+          aria-hidden="true"
+        >↗</span>
       </RouterLink>
 
       <button

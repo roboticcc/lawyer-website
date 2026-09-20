@@ -4,17 +4,27 @@ import { useFaqStore } from '@/stores/faq'
 
 defineProps<{
   faqItems: FaqItem[]
+  pageHeading?: boolean
 }>()
 
 const faqStore = useFaqStore()
 </script>
 
 <template>
-  <section class="section-ink site-section">
-    <div class="site-container grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20">
-      <h2 class="display-title">
+  <section
+    class="section-ink site-section"
+    :class="{ 'site-section--compact': pageHeading }"
+  >
+    <div
+      class="site-container"
+      :class="pageHeading ? 'max-w-4xl' : 'grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20'"
+    >
+      <component
+        :is="pageHeading ? 'h1' : 'h2'"
+        :class="pageHeading ? 'content-page-title mb-9' : 'display-title'"
+      >
         Вопросы и ответы
-      </h2>
+      </component>
 
       <ul class="border-t border-white/15">
         <li

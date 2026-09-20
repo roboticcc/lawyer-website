@@ -5,6 +5,7 @@ import { CONTACT_EMAIL } from '@/utils/constants'
 const attorneyStore = useAttorneyStore()
 const links = [
   { label: 'Написать в Telegram', shortLabel: 'Telegram', href: attorneyStore.attorney.telegramUrl },
+  { label: 'Позвонить адвокату', shortLabel: attorneyStore.formattedPhone, href: attorneyStore.attorney.phone ? `tel:${attorneyStore.attorney.phone}` : '' },
   { label: 'Написать в MAX', shortLabel: 'MAX', href: attorneyStore.attorney.maxUrl },
   { label: 'Написать в WhatsApp', shortLabel: 'WhatsApp', href: attorneyStore.attorney.whatsappUrl },
   { label: 'Написать на почту', shortLabel: 'Почта', href: `mailto:${CONTACT_EMAIL}` },
@@ -33,8 +34,8 @@ const [primaryLink, ...alternativeLinks] = links
         v-for="link in alternativeLinks"
         :key="link.label"
         :href="link.href"
-        :target="link.href?.startsWith('mailto:') ? undefined : '_blank'"
-        :rel="link.href?.startsWith('mailto:') ? undefined : 'noopener noreferrer'"
+        :target="link.href?.startsWith('http') ? '_blank' : undefined"
+        :rel="link.href?.startsWith('http') ? 'noopener noreferrer' : undefined"
         :aria-label="link.label"
       >
         {{ link.shortLabel }}

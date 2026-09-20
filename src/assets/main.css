@@ -139,22 +139,9 @@
     text-wrap: balance;
   }
 
-  .section-intro {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.65fr);
-    gap: clamp(2rem, 5vw, 5rem);
-    align-items: end;
-    margin-bottom: clamp(2rem, 4vw, 3rem);
-  }
-
-  .section-copy {
-    max-width: 34rem;
-    color: var(--muted);
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
-  }
-
-  .section-paper .section-copy {
-    color: rgba(25, 25, 23, 0.68);
+  .content-page-title {
+    font-size: clamp(2.15rem, 3.1vw, 3rem);
+    text-wrap: balance;
   }
 
   .button-primary,
@@ -202,6 +189,34 @@
     color: var(--ink);
   }
 
+  .header-contact-link {
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.55rem;
+    border-bottom: 1px solid rgba(172, 152, 126, 0.6);
+    color: var(--bronze);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: border-color 180ms ease, color 180ms ease;
+  }
+
+  .header-contact-link:hover {
+    border-color: var(--paper);
+    color: var(--paper);
+  }
+
+  .header-contact-link__arrow {
+    font-size: 1.15rem;
+    line-height: 1;
+    transition: transform 180ms ease;
+  }
+
+  .header-contact-link:hover .header-contact-link__arrow {
+    transform: translate(2px, -2px);
+  }
+
   .editorial-rule {
     border-top: 1px solid var(--line-dark);
   }
@@ -212,27 +227,36 @@
 
   .editorial-hero {
     position: relative;
-    min-height: clamp(36rem, 72svh, 44rem);
+    min-height: calc(100svh - 5rem);
     overflow: hidden;
-    background:
-      linear-gradient(90deg, rgba(25, 25, 23, 0.98) 0%, rgba(25, 25, 23, 0.94) 38%, rgba(25, 25, 23, 0.38) 100%),
-      url('/images/legal-office.webp') center 44% / cover,
-      var(--ink);
+    background: var(--ink);
+  }
+
+  .editorial-hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 44%;
   }
 
   .editorial-hero::before {
     position: absolute;
+    z-index: 1;
     inset: 0;
-    background: linear-gradient(0deg, rgba(25, 25, 23, 0.15), transparent 40%);
+    background:
+      linear-gradient(0deg, rgba(25, 25, 23, 0.15), transparent 40%),
+      linear-gradient(90deg, rgba(25, 25, 23, 0.98) 0%, rgba(25, 25, 23, 0.94) 38%, rgba(25, 25, 23, 0.38) 100%);
     content: "";
     pointer-events: none;
   }
 
   .hero-layout {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
-    min-height: clamp(36rem, 72svh, 44rem);
+    min-height: calc(100svh - 5rem);
     align-items: center;
     padding-block: 4rem;
   }
@@ -330,15 +354,6 @@
 }
 
 @media (max-width: 900px) {
-  .section-intro {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .hero-layout {
-    min-height: 0;
-  }
-
   .hero-copy {
     max-width: 38rem;
   }
@@ -354,20 +369,16 @@
     width: min(calc(100% - 2rem), 80rem);
   }
 
-  .editorial-hero,
-  .hero-layout {
-    min-height: 0;
-  }
-
   .hero-layout {
     padding-block: 4rem 3rem;
   }
 
-  .editorial-hero {
-    background:
-      linear-gradient(90deg, rgba(25, 25, 23, 0.91), rgba(25, 25, 23, 0.72)),
-      url('/images/legal-office.webp') center / cover,
-      var(--ink);
+  .editorial-hero::before {
+    background: linear-gradient(90deg, rgba(25, 25, 23, 0.91), rgba(25, 25, 23, 0.72));
+  }
+
+  .editorial-hero__image {
+    object-position: 51% center;
   }
 
   .hero-title {

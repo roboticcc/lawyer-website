@@ -6,10 +6,10 @@ withDefaults(
   defineProps<{
     services: Service[]
     title?: string
-    description?: string
     showLinkToAll?: boolean
+    pageHeading?: boolean
   }>(),
-  { title: 'Наша специализация', description: '', showLinkToAll: true }
+  { title: 'Наша специализация', showLinkToAll: true, pageHeading: false }
 )
 </script>
 
@@ -17,24 +17,23 @@ withDefaults(
   <section
     id="services-section"
     class="section-ink site-section"
+    :class="{ 'site-section--compact': pageHeading }"
   >
     <div class="site-container">
       <div
-        v-if="title || description"
-        class="section-intro"
+        v-if="title"
+        class="mb-9"
       >
-        <div v-if="title">
-          <span class="eyebrow mb-4">Направления практики</span>
-          <h2 class="display-title">
-            {{ title }}
-          </h2>
-        </div>
-        <p
-          v-if="description"
-          class="section-copy"
+        <span
+          v-if="!pageHeading"
+          class="eyebrow mb-4"
+        >Направления практики</span>
+        <component
+          :is="pageHeading ? 'h1' : 'h2'"
+          :class="pageHeading ? 'content-page-title' : 'display-title'"
         >
-          {{ description }}
-        </p>
+          {{ title }}
+        </component>
       </div>
 
       <div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">

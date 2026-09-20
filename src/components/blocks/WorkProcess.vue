@@ -4,6 +4,7 @@ import type { ProcessStep } from '@/types'
 defineProps<{
   steps: ProcessStep[]
   title?: string
+  pageHeading?: boolean
 }>()
 </script>
 
@@ -11,21 +12,23 @@ defineProps<{
   <section
     id="work-process"
     class="section-paper site-section relative overflow-hidden"
+    :class="pageHeading ? 'site-section--compact' : 'pb-8'"
   >
     <div class="site-container">
       <div
         v-if="title"
-        class="section-intro"
+        class="mb-9"
       >
-        <div>
-          <span class="eyebrow mb-4">От обращения до результата</span>
-          <h2 class="display-title">
-            {{ title }}
-          </h2>
-        </div>
-        <p class="section-copy">
-          Сначала разбираемся в обстоятельствах и документах, затем согласуем действия и объём помощи.
-        </p>
+        <span
+          v-if="!pageHeading"
+          class="eyebrow mb-4"
+        >От обращения до результата</span>
+        <component
+          :is="pageHeading ? 'h1' : 'h2'"
+          :class="pageHeading ? 'content-page-title' : 'display-title'"
+        >
+          {{ title }}
+        </component>
       </div>
 
       <div class="grid gap-4 md:grid-cols-2">

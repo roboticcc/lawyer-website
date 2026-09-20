@@ -24,14 +24,12 @@ const cleanGroupTitle = (title: string) => title.replace(/^[^\p{L}\p{N}]+/u, '')
 <template>
   <section
     id="other-practices"
-    class="section-paper site-section"
+    class="section-paper site-section pt-0"
   >
-    <div class="site-container grid min-w-0 gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
-      <div class="min-w-0">
-        <h2 class="display-title text-balance text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.18] [hyphens:none]">
-          Другие направления правовой поддержки
-        </h2>
-      </div>
+    <div class="site-container min-w-0 border-t border-black/20 pt-8">
+      <h2 class="display-title mb-8 max-w-none text-balance text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.18] [hyphens:none]">
+        Другие направления правовой поддержки
+      </h2>
 
       <div class="min-w-0 border-t border-black/20">
         <article

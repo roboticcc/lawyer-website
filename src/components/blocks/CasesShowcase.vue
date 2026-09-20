@@ -21,14 +21,11 @@ const scrollCases = (direction: number) => {
     <div class="site-container">
       <div
         v-if="showHeading"
-        class="section-intro"
+        class="mb-9"
       >
         <h2 class="display-title">
-          Примеры дел
+          Иллюстративные примеры
         </h2>
-        <p class="section-copy">
-          Демонстрационные описания. Материалы судебных решений будут добавлены после проверки.
-        </p>
       </div>
 
       <div

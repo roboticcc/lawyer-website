@@ -1,7 +1,7 @@
 export interface AttorneyPhotos {
   hero: string
   working: string
-  passport: string
+  consultation: string
 }
 
 export interface Attorney {

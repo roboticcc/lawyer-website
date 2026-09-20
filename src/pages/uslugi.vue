@@ -32,24 +32,11 @@ useHead({
 
 <template>
   <MainLayout>
-    <section class="section-soft site-section--compact">
-      <div class="site-container grid gap-4 md:grid-cols-[1.1fr_0.9fr] md:items-end md:gap-12">
-        <div>
-          <span class="eyebrow mb-4">Услуги адвоката</span>
-          <h1 class="display-title">
-            Направления практики
-          </h1>
-        </div>
-        <p class="max-w-xl text-lg text-[#c7c2b9]">
-          Защита по уголовным делам, помощь бизнесу и представительство в гражданских и административных спорах.
-        </p>
-      </div>
-    </section>
-
     <ServicesGrid
       :services="servicesStore.services"
-      title=""
+      title="Услуги адвоката"
       :show-link-to-all="false"
+      page-heading
     />
   </MainLayout>
 </template>

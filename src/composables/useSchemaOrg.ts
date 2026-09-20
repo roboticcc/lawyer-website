@@ -9,7 +9,7 @@ import {
   generateServiceSchema,
   generateWebSiteSchema,
 } from '@/utils/schema'
-import { SITE_NAME, SITE_URL } from '@/utils/constants'
+import { SITE_HERO_IMAGE, SITE_NAME, SITE_URL } from '@/utils/constants'
 
 const injectSchema = (schema: Record<string, unknown>) => {
   useHead({
@@ -49,7 +49,7 @@ export const usePageSeo = (title: string, description: string, options: SeoOptio
     const origin = SITE_URL || (typeof window !== 'undefined' ? window.location.origin : '')
     const path = route.path.replace(/\/+$/, '') || '/'
     const canonical = origin ? `${origin}${path}` : ''
-    const image = origin ? `${origin}/images/legal-desk.webp` : ''
+    const image = origin ? `${origin}${SITE_HERO_IMAGE}` : ''
 
     return {
       title,

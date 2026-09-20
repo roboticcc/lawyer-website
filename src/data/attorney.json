@@ -2,7 +2,7 @@
   "fullName": "Мосензов Игорь Леонидович",
   "bio": "Адвокат. Юридическая помощь по уголовным, гражданским и административным делам.",
   "regNumber": "55/800",
-  "phone": "",
+  "phone": "+79059230767",
   "email": "advokat800@yandex.ru",
   "city": "Омск",
   "address": "ул. Красный Путь, 78, офис 3",
@@ -14,8 +14,8 @@
   "whatsappUrl": "https://wa.me/qr/VXELK4UP7EPWN1",
   "telegramUrl": "https://t.me/Advocate800",
   "photos": {
-    "hero": "/images/legal-office.webp",
-    "working": "/images/legal-desk.webp",
-    "passport": "/images/legal-desk.webp"
+    "hero": "/images/attorney-hero.webp",
+    "working": "/images/attorney-working.webp",
+    "consultation": "/images/attorney-consultation.webp"
   }
 }

@@ -10,7 +10,7 @@ const attorneyStore = useAttorneyStore()
 
 usePageSeo(
   `Контакты адвоката ${attorneyStore.attorney.fullName} в ${attorneyStore.attorney.city}`,
-  `Адрес адвоката Игоря Мосензова: Омск, ул. Красный Путь, 78, офис 3. Напишите по электронной почте или в мессенджере.`
+  `Адрес адвоката Игоря Мосензова: Омск, ул. Красный Путь, 78, офис 3. Позвоните или напишите по электронной почте и в мессенджерах.`
 )
 
 useAttorneySchema(attorneyStore.attorney)
@@ -65,10 +65,10 @@ useAttorneySchema(attorneyStore.attorney)
 
           <div class="rounded-lg border border-black/10 bg-white/50 p-8 md:p-10">
             <h2 class="mb-5 text-2xl">
-              Написать адвокату
+              Связаться с адвокатом
             </h2>
             <p class="mb-8 max-w-md text-black/65">
-              Расскажите о ситуации в удобном мессенджере. Ответ поступит в выбранном приложении.
+              Позвоните или кратко расскажите о ситуации в удобном мессенджере либо по почте.
             </p>
             <ContactActions />
           </div>

@@ -58,7 +58,7 @@ try {
     const html = template
       .replace(/<title>[\s\S]*?<\/title>/, '')
       .replace('</head>', `    ${head}\n  </head>`)
-      .replace('<div id="app"></div>', `<div id="app">${body}</div>`)
+      .replace('<div id="app"></div>', `<div id="app" data-prerendered-route="${escapeHtml(route)}">${body}</div>`)
     const file = route === '/' ? join(dist, 'index.html') : join(dist, route.slice(1), 'index.html')
     await mkdir(dirname(file), { recursive: true })
     await writeFile(file, html)
@@ -68,7 +68,7 @@ try {
   await writeFile(join(dist, '404.html'), template
     .replace(/<title>[\s\S]*?<\/title>/, '')
     .replace('</head>', `    ${missingHead}\n  </head>`)
-    .replace('<div id="app"></div>', `<div id="app">${missingPage.body}</div>`))
+    .replace('<div id="app"></div>', `<div id="app" data-prerendered-route="/not-found">${missingPage.body}</div>`))
 } finally {
   await vite.close()
 }
