@@ -19,7 +19,7 @@ const groupTitle = computed(() => group.value?.title.replace(/^[^\p{L}\p{N}]+/u,
 usePageSeo(
   item.value ? `${item.value.title} — услуги адвоката` : 'Услуга не найдена',
   item.value?.description || 'Услуги адвоката Мосензова Игоря Леонидовича.',
-  undefined
+  { noindex: true }
 )
 </script>
 

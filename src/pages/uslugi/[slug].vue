@@ -18,8 +18,7 @@ const service = computed(() => servicesStore.getBySlug(String(route.params.slug)
 if (service.value) {
   usePageSeo(
     service.value.pageTitle || service.value.title,
-    service.value.shortDescription,
-    `${service.value.title}, ${attorneyStore.attorney.fullName}, защита`
+    `${service.value.shortDescription} Адвокат Игорь Мосензов, Омск.`
   )
   useServiceSchema(service.value, attorneyStore.attorney)
 }

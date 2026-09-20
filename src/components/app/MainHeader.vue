@@ -7,9 +7,10 @@ import PhoneLink from '@/components/ui/PhoneLink.vue'
 const isMenuOpen = ref(false)
 
 const navLinks = [
-  { to: '/#work-process', label: 'Порядок работы' },
-  { to: '/#services-section', label: 'Специализация' },
-  { to: '/#cases', label: 'Примеры дел' },
+  { to: '/uslugi', label: 'Услуги' },
+  { to: '/priory-raboty', label: 'Порядок работы' },
+  { to: '/faq', label: 'Вопросы и ответы' },
+  { to: '/kontakt', label: 'Контакты' },
 ]
 
 const toggleMenu = () => {

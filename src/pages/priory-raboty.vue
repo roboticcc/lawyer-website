@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import MainLayout from '@/layouts/MainLayout.vue'
 import WorkProcess from '@/components/blocks/WorkProcess.vue'
-import { usePageSeo, useHowToSchema } from '@/composables/useSchemaOrg'
+import { usePageSeo } from '@/composables/useSchemaOrg'
 import { workSteps } from '@/data/workSteps'
 
 usePageSeo(
-  'Порядок работы с адвокатом: этапы юридической защиты',
-  'Пошаговый алгоритм юридической помощи от первого анализа документов до судебного решения.',
-  'порядок работы адвоката, этапы защиты, юридическая помощь'
+  'Порядок работы с адвокатом Игорем Мосензовым',
+  'Как проходит работа с адвокатом: обращение, изучение материалов дела, подготовка позиции и представительство.'
 )
-
-useHowToSchema(workSteps)
 </script>
 
 <template>

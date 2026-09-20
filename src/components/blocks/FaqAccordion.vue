@@ -39,7 +39,7 @@ const faqStore = useFaqStore()
             </span>
           </button>
           <div
-            v-if="faqStore.isExpanded(item.id)"
+            v-show="faqStore.isExpanded(item.id)"
             :id="`faq-answer-${item.id}`"
             class="max-w-2xl pb-7 pr-12 text-[#aaa69e]"
           >

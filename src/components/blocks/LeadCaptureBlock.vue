@@ -9,6 +9,9 @@ import ContactActions from '@/components/ui/ContactActions.vue'
         src="/images/legal-desk.webp"
         alt="Иллюстрация юридического кабинета"
         loading="lazy"
+        decoding="async"
+        width="1536"
+        height="1024"
         class="order-2 h-[22rem] w-full border border-white/15 object-cover md:order-1 md:h-[30rem]"
       >
 

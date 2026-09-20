@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build && node scripts/prerender.mjs",
     "build:analyze": "vite build --mode analyze",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit",
     "lint:ts": "eslint . --ext .ts,.vue --fix",
     "lint:css": "stylelint \"**/*.{css,vue}\" --fix",
     "test:unit": "vitest run",
+    "test:seo": "node scripts/check-seo.mjs",
     "format": "prettier --write .",
     "prepare": "simple-git-hooks"
   },

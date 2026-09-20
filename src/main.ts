@@ -1,16 +1,9 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
 import { createHead } from '@unhead/vue'
-import App from './App.vue'
+import { createApp } from './app'
 import { router } from './router'
-import { i18n } from './i18n'
 import './assets/main.css'
 
-const app = createApp(App)
+const mountPoint = document.querySelector('#app')
+const app = createApp(router, createHead(), Boolean(mountPoint?.hasChildNodes()))
 
-app.use(createPinia())
-app.use(router)
-app.use(i18n)
-app.use(createHead())
-
-app.mount('#app')
+router.isReady().then(() => app.mount('#app'))

@@ -12,7 +12,7 @@ const caseStudy = computed(() => casesStore.cases.find((item) => item.id === rou
 usePageSeo(
   caseStudy.value ? `Пример дела: ${caseStudy.value.title}` : 'Описание дела',
   caseStudy.value ? `Демонстрационное описание: ${caseStudy.value.description}` : 'Описание дела адвоката.',
-  undefined
+  { noindex: true }
 )
 </script>
 

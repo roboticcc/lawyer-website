@@ -3,7 +3,7 @@ import type { Attorney, Service } from '@/types'
 
 export const generatePageUrl = (path: string): string => {
   const normalized = path.startsWith('/') ? path : `/${path}`
-  return `${SITE_URL}${normalized}`
+  return SITE_URL ? `${SITE_URL}${normalized}` : normalized
 }
 
 export const generateServiceUrl = (slug: string): string => generatePageUrl(`/uslugi/${slug}`)

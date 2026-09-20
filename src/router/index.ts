@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   { path: '/', name: 'home', component: () => import('@/pages/index.vue') },
@@ -30,12 +30,12 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('@/pages/index.vue'),
+    component: () => import('@/pages/not-found.vue'),
   },
 ]
 
-export const router = createRouter({
-  history: createWebHistory(),
+export const createAppRouter = (server = false) => createRouter({
+  history: server ? createMemoryHistory() : createWebHistory(),
   routes,
   scrollBehavior(to) {
     if (to.hash) {
@@ -44,3 +44,5 @@ export const router = createRouter({
     return { top: 0 }
   },
 })
+
+export const router = createAppRouter(import.meta.env.SSR)

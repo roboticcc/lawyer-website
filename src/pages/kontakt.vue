@@ -11,8 +11,7 @@ const attorneyStore = useAttorneyStore()
 
 usePageSeo(
   `Контакты адвоката ${attorneyStore.attorney.fullName} в ${attorneyStore.attorney.city}`,
-  `Свяжитесь с адвокатом ${attorneyStore.attorney.fullName}: электронная почта, мессенджеры, адрес офиса в ${attorneyStore.attorney.city}.`,
-  'контакты адвоката, адрес адвоката, электронная почта, мессенджеры'
+  `Адрес адвоката Игоря Мосензова: Омск, ул. Красный Путь, 78, офис 3. Напишите по электронной почте или в мессенджере.`
 )
 
 useAttorneySchema(attorneyStore.attorney)

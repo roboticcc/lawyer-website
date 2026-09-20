@@ -64,7 +64,7 @@ const cleanGroupTitle = (title: string) => title.replace(/^[^\p{L}\p{N}]+/u, '')
           </button>
 
           <ul
-            v-if="isOpen(group.id)"
+            v-show="isOpen(group.id)"
             :id="`other-practice-${group.id}`"
             class="space-y-6 pb-8 pl-0 md:pl-12"
           >

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import MainLayout from '@/layouts/MainLayout.vue'
 import WorkProcess from '@/components/blocks/WorkProcess.vue'
 import ServicesGrid from '@/components/blocks/ServicesGrid.vue'
@@ -20,12 +21,12 @@ const casesStore = useCasesStore()
 const faqStore = useFaqStore()
 
 usePageSeo(
-  `Адвокат ${attorneyStore.attorney.fullName} • Квалифицированная юридическая помощь в ${attorneyStore.attorney.city}`,
-  'Адвокат Мосензов Игорь Леонидович. Защита по уголовным, гражданским и административным делам.',
-  'адвокат Омск, защита прав, уголовный адвокат, гражданские споры, административные дела, юридическая помощь'
+  `Адвокат ${attorneyStore.attorney.fullName} в Омске | Юридическая помощь`,
+  'Адвокат Игорь Мосензов в Омске: защита по уголовным делам, представительство в гражданских и административных спорах. Связь напрямую через почту и мессенджеры.'
 )
 
 useAttorneySchema(attorneyStore.attorney, servicesStore.services)
+useHead({ link: [{ rel: 'preload', as: 'image', href: '/images/legal-office.webp' }] })
 
 </script>
 
@@ -36,7 +37,7 @@ useAttorneySchema(attorneyStore.attorney, servicesStore.services)
         <div>
           <span class="eyebrow">{{ attorneyStore.attorney.fullName }}</span>
           <h1 class="hero-title">
-            Квалифицированная юридическая поддержка в любой точке РФ
+            Адвокат в Омске. Правовая поддержка в любой точке РФ
           </h1>
         </div>
 

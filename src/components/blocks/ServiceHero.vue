@@ -34,6 +34,9 @@ const attorneyStore = useAttorneyStore()
       <img
         src="/images/legal-office.webp"
         alt="Иллюстрация юридического кабинета"
+        width="1024"
+        height="1536"
+        decoding="async"
         class="h-[26rem] w-full border border-white/15 object-cover md:h-[32rem]"
       >
     </template>
