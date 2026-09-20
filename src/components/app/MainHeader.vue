@@ -41,14 +41,16 @@ const closeMenu = () => {
         </RouterLink>
       </nav>
 
-      <div class="hidden items-center gap-5 lg:flex">
-        <PhoneLink class="text-sm text-primary-300" />
-        <SocialIcons variant="dark" />
-      </div>
+      <RouterLink
+        to="/kontakt"
+        class="button-outline hidden lg:inline-flex"
+      >
+        Связаться
+      </RouterLink>
 
       <button
         type="button"
-        class="relative h-11 w-11 border border-white/20 text-primary-50 lg:hidden"
+        class="relative h-11 w-11 rounded-md border border-white/20 text-primary-50 lg:hidden"
         aria-label="Открыть меню"
         :aria-expanded="isMenuOpen"
         @click="toggleMenu"

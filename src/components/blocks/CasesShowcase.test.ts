@@ -12,6 +12,6 @@ describe('CasesShowcase', () => {
     expect(links.map((link) => link.attributes('href'))).toEqual(
       cases.map((caseStudy) => `/praktika/${caseStudy.id}`)
     )
-    expect(links.every((link) => link.attributes('target') === '_blank')).toBe(true)
+    expect(links.every((link) => link.attributes('target') === undefined)).toBe(true)
   })
 })

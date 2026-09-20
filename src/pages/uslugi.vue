@@ -33,13 +33,15 @@ useHead({
 <template>
   <MainLayout>
     <section class="section-soft site-section--compact">
-      <div class="site-container grid gap-8 border-b border-white/15 pb-10 md:grid-cols-[1fr_0.8fr] md:items-end">
-        <h1 class="display-title">
-          Наша специализация
-        </h1>
-        <p class="max-w-2xl text-lg text-[#b9b5ad]">
-          Комплексная юридическая защита по всем ключевым направлениям права. Выберите категорию,
-          чтобы узнать подробнее о порядке работы и стоимости.
+      <div class="site-container grid gap-4 md:grid-cols-[1.1fr_0.9fr] md:items-end md:gap-12">
+        <div>
+          <span class="eyebrow mb-4">Услуги адвоката</span>
+          <h1 class="display-title">
+            Направления практики
+          </h1>
+        </div>
+        <p class="max-w-xl text-lg text-[#c7c2b9]">
+          Защита по уголовным делам, помощь бизнесу и представительство в гражданских и административных спорах.
         </p>
       </div>
     </section>

@@ -58,12 +58,12 @@ const attorneyStore = useAttorneyStore()
         width="1024"
         height="1536"
         decoding="async"
-        class="h-[26rem] w-full border border-white/15 object-cover md:h-[32rem]"
+        class="h-[14rem] w-full rounded-lg object-cover sm:h-[19rem] md:h-[25rem]"
       >
     </template>
 
     <template #details>
-      <p class="mt-5 font-sans text-2xl text-primary-300">
+      <p class="font-sans text-lg font-semibold text-primary-300">
         {{ props.service.price }}
       </p>
     </template>

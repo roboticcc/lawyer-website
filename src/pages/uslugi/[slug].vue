@@ -29,9 +29,15 @@ if (service.value) {
     <template v-if="service">
       <ServiceHero :service="service" />
 
-      <section class="section-ink site-section--compact">
-        <div class="site-container max-w-4xl border-l border-primary-500/60 pl-7 md:pl-12">
-          <p class="font-sans text-2xl leading-relaxed text-[#c7c2b9] md:text-3xl">
+      <section class="section-paper site-section--compact border-b border-black/10">
+        <div class="site-container grid gap-6 md:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] md:gap-12">
+          <div>
+            <span class="eyebrow mb-4">Подход к делу</span>
+            <h2 class="text-2xl md:text-3xl">
+              Как помогаю
+            </h2>
+          </div>
+          <p class="max-w-3xl text-base leading-relaxed text-black/75 md:text-lg">
             {{ service.longDescription }}
           </p>
         </div>

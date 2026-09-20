@@ -35,65 +35,42 @@ useHead({ link: [{ rel: 'preload', as: 'image', href: '/images/legal-office.webp
   <MainLayout>
     <section class="editorial-hero">
       <div class="site-container hero-layout">
-        <div>
+        <div class="hero-content">
           <span class="eyebrow">{{ attorneyStore.attorney.fullName }}</span>
           <h1 class="hero-title">
             Адвокат в Омске. Правовая поддержка в любой точке РФ
           </h1>
-        </div>
-
-        <div class="relative z-10 border-t border-primary-500/60 pt-6">
           <p class="hero-copy">
-            Столкнулись со сложной правовой ситуацией? Опишите свою проблему, и мы разработаем
-            надежный план защиты ваших интересов
+            Защита по уголовным делам, помощь в гражданских и административных спорах.
+            Расскажите о ситуации напрямую адвокату — подскажем, с чего начать.
           </p>
-          <div class="hero-actions">
-            <ContactActions />
-            <a
-              v-if="attorneyStore.attorney.phone"
-              :href="`tel:${attorneyStore.attorney.phone}`"
-              class="button-outline"
-            >
-              Позвонить сейчас
-            </a>
+          <ContactActions />
+          <div class="hero-facts">
+            <span>Омск, ул. Красный Путь, 78</span>
+            <span>Рег. № {{ attorneyStore.attorney.regNumber }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <WorkProcess
-      :steps="workSteps"
-      title="Порядок работы"
-    />
-
     <ServicesGrid
       :services="servicesStore.mainCatalog"
-      title="Услуги адвоката"
+      title="Чем я могу помочь"
+      description="Выберите направление, чтобы посмотреть, как строится работа и из чего складывается стоимость."
       :show-link-to-all="true"
     />
 
-    <OtherPracticesAccordion />
+    <WorkProcess
+      :steps="workSteps"
+      title="Как строится работа"
+    />
 
-    <LeadCaptureBlock />
+    <OtherPracticesAccordion />
 
     <CasesShowcase :cases="casesStore.cases" />
 
     <FaqAccordion :faq-items="faqStore.faqItems" />
 
-    <section class="section-paper site-section">
-      <div class="site-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-        <div>
-          <h2 class="display-title">
-            Нужна экстренная юридическая помощь?
-          </h2>
-        </div>
-        <div class="border-t border-black/20 pt-7">
-          <p class="mb-8 max-w-xl text-black/60">
-            Свяжитесь с адвокатом напрямую удобным способом.
-          </p>
-          <ContactActions />
-        </div>
-      </div>
-    </section>
+    <LeadCaptureBlock />
   </MainLayout>
 </template>

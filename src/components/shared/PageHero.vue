@@ -14,23 +14,25 @@ defineProps<{
 </script>
 
 <template>
-  <section class="section-soft site-section relative overflow-hidden">
-    <div class="site-container grid items-center gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-20">
+  <section class="page-hero section-soft relative overflow-hidden">
+    <div class="site-container grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-14">
       <div>
         <slot name="breadcrumb" />
-        <h1 class="display-title max-w-5xl">
+        <h1 class="display-title max-w-4xl">
           {{ title }}
         </h1>
         <p
           v-if="subtitle"
-          class="mb-9 mt-8 max-w-2xl border-t border-white/15 pt-6 text-lg text-[#b9b5ad]"
+          class="mb-6 mt-5 max-w-2xl text-lg text-[#c7c2b9]"
         >
           {{ subtitle }}
         </p>
 
+        <slot name="details" />
+
         <div
           v-if="actionButton || secondaryButton"
-          class="mb-8 flex flex-col gap-3 sm:flex-row"
+          class="mt-7 flex flex-wrap gap-3"
         >
           <a
             v-if="actionButton"
@@ -49,8 +51,6 @@ defineProps<{
             {{ secondaryButton.text }}
           </a>
         </div>
-
-        <slot name="details" />
       </div>
 
       <div>

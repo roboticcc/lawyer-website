@@ -9,7 +9,7 @@ describe('OtherPracticesAccordion', () => {
     const links = wrapper.findAll('a[href^="/uslugi/dopolnitelnye/"]')
     expect(links).toHaveLength(groups.reduce((total, group) => total + group.items.length, 0))
     expect(links[0].attributes('href')).toBe(`/uslugi/dopolnitelnye/${groups[0].id}/1`)
-    expect(links.every((link) => link.attributes('target') === '_blank')).toBe(true)
+    expect(links.every((link) => link.attributes('target') === undefined)).toBe(true)
     expect(wrapper.find('button').attributes('aria-expanded')).toBe('false')
 
     await wrapper.find('button').trigger('click')

@@ -19,31 +19,30 @@ withDefaults(
     class="section-ink site-section"
   >
     <div class="site-container">
-      <div class="section-intro">
-        <h2
-          v-if="title"
-          class="display-title"
-        >
-          {{ title }}
-        </h2>
-
+      <div
+        v-if="title || description"
+        class="section-intro"
+      >
+        <div v-if="title">
+          <span class="eyebrow mb-4">Направления практики</span>
+          <h2 class="display-title">
+            {{ title }}
+          </h2>
+        </div>
         <p
           v-if="description"
           class="section-copy"
         >
           {{ description }}
         </p>
-        <div
-          v-else
-          class="hidden h-px bg-white/20 md:block"
-        />
       </div>
 
-      <div class="service-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
         <ServiceCard
-          v-for="service in services"
+          v-for="(service, index) in services"
           :key="service.id"
           :service="service"
+          :class="{ 'md:col-span-2': services.length % 2 === 1 && index === services.length - 1 }"
         />
       </div>
 
@@ -53,11 +52,9 @@ withDefaults(
       >
         <RouterLink
           to="/uslugi"
-          target="_blank"
-          rel="noopener noreferrer"
           class="button-outline"
         >
-          <span>Показать все услуги</span>
+          <span>Все направления</span>
           <svg
             class="ml-2 h-5 w-5"
             fill="none"
@@ -77,19 +74,3 @@ withDefaults(
     </div>
   </section>
 </template>
-
-<style scoped>
-.service-grid {
-  counter-reset: service;
-}
-
-.service-grid > :not(:first-child) {
-  margin-left: -1px;
-}
-
-@media (max-width: 1023px) {
-  .service-grid > :not(:first-child) {
-    margin-left: 0;
-  }
-}
-</style>

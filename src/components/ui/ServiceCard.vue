@@ -11,31 +11,17 @@ const serviceHref = `/uslugi/${props.service.slug}`
 <template>
   <a
     :href="serviceHref"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="service-card group relative flex min-h-[25rem] flex-col border border-white/15 bg-[#1d1d1b] p-7 text-left no-underline transition-colors duration-300 hover:border-primary-500 md:p-9"
+    class="service-card group relative flex min-h-[18rem] flex-col rounded-lg border border-white/10 bg-[#262521] p-7 text-left no-underline transition-all duration-200 hover:-translate-y-1 hover:border-primary-500/70 hover:bg-[#2b2925] md:p-8"
   >
-    <span class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary-400">
+    <span class="mb-7 pr-10 text-xs font-semibold uppercase tracking-[0.1em] text-primary-300">
       {{ service.category }}
     </span>
-    <h3 class="mb-6 mt-auto max-w-md uppercase text-primary-50 transition-colors group-hover:text-primary-300">{{ service.title }}</h3>
-    <p class="border-t border-white/15 pt-5 text-sm text-[#aaa69e]">{{ service.shortDescription }}</p>
-    <p class="mt-5 text-sm font-semibold uppercase tracking-[0.1em] text-primary-300">{{ service.price }}</p>
+    <span
+      class="absolute right-7 top-7 text-xl text-primary-300 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+      aria-hidden="true"
+    >↗</span>
+    <h3 class="mb-4 max-w-xl text-[clamp(1.2rem,2vw,1.55rem)] leading-snug text-primary-50">{{ service.title }}</h3>
+    <p class="mb-7 max-w-xl text-sm text-[#c7c2b9]">{{ service.shortDescription }}</p>
+    <p class="mt-auto border-t border-white/10 pt-4 text-sm font-semibold text-primary-300">{{ service.price }}</p>
   </a>
 </template>
-
-<style scoped>
-.service-card {
-  counter-increment: service;
-}
-
-.service-card::after {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  color: rgba(242, 239, 232, 0.25);
-  content: "0" counter(service);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-}
-</style>

@@ -41,7 +41,7 @@ const cleanGroupTitle = (title: string) => title.replace(/^[^\p{L}\p{N}]+/u, '')
         >
           <button
             type="button"
-            class="flex w-full items-center justify-between gap-6 py-7 text-left transition-colors hover:text-primary-700"
+            class="flex w-full items-center justify-between gap-6 py-6 text-left transition-colors hover:text-primary-700"
             :aria-expanded="isOpen(group.id)"
             :aria-controls="`other-practice-${group.id}`"
             @click="toggleGroup(group.id)"
@@ -50,12 +50,12 @@ const cleanGroupTitle = (title: string) => title.replace(/^[^\p{L}\p{N}]+/u, '')
               <span class="pt-1 font-sans text-base text-primary-700 md:text-lg">
                 {{ formatGroupNumber(index) }}
               </span>
-              <span class="min-w-0 break-normal font-sans text-xl uppercase leading-tight [hyphens:none] md:text-2xl">
+              <span class="min-w-0 break-normal font-sans text-lg font-semibold leading-snug [hyphens:none] md:text-xl">
                 {{ cleanGroupTitle(group.title) }}
               </span>
             </span>
             <span
-              class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary-700 text-2xl font-light leading-none text-primary-700 transition-transform"
+              class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-primary-700/50 text-xl font-light leading-none text-primary-700 transition-transform"
               :class="{ 'rotate-45': isOpen(group.id) }"
               aria-hidden="true"
             >
@@ -74,8 +74,6 @@ const cleanGroupTitle = (title: string) => title.replace(/^[^\p{L}\p{N}]+/u, '')
             >
               <a
                 :href="`/uslugi/dopolnitelnye/${group.id}/${itemIndex + 1}`"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="font-semibold text-black/85 underline decoration-primary-700/40 underline-offset-4 hover:text-primary-700"
               >
                 {{ item.title }} →

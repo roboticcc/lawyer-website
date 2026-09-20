@@ -4,27 +4,41 @@ import { CONTACT_EMAIL } from '@/utils/constants'
 
 const attorneyStore = useAttorneyStore()
 const links = [
-  { label: 'Написать в Telegram', href: attorneyStore.attorney.telegramUrl },
-  { label: 'Написать в MAX', href: attorneyStore.attorney.maxUrl },
-  { label: 'Написать в WhatsApp', href: attorneyStore.attorney.whatsappUrl },
-  { label: 'Написать на почту', href: `mailto:${CONTACT_EMAIL}` },
+  { label: 'Написать в Telegram', shortLabel: 'Telegram', href: attorneyStore.attorney.telegramUrl },
+  { label: 'Написать в MAX', shortLabel: 'MAX', href: attorneyStore.attorney.maxUrl },
+  { label: 'Написать в WhatsApp', shortLabel: 'WhatsApp', href: attorneyStore.attorney.whatsappUrl },
+  { label: 'Написать на почту', shortLabel: 'Почта', href: `mailto:${CONTACT_EMAIL}` },
 ].filter((link) => link.href)
+const [primaryLink, ...alternativeLinks] = links
 </script>
 
 <template>
   <div
-    class="flex flex-wrap gap-3"
+    class="contact-actions"
     aria-label="Способы связи с адвокатом"
   >
     <a
-      v-for="(link, index) in links"
-      :key="link.label"
-      :href="link.href"
-      :target="link.href?.startsWith('mailto:') ? undefined : '_blank'"
-      :rel="link.href?.startsWith('mailto:') ? undefined : 'noopener noreferrer'"
-      :class="index === 0 ? 'button-primary' : 'button-outline'"
+      v-if="primaryLink"
+      :href="primaryLink.href"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="button-primary"
     >
-      {{ link.label }}
+      {{ primaryLink.label }}
+      <span aria-hidden="true">↗</span>
     </a>
+    <div class="contact-actions__alternatives">
+      <span class="contact-actions__label">Другие способы:</span>
+      <a
+        v-for="link in alternativeLinks"
+        :key="link.label"
+        :href="link.href"
+        :target="link.href?.startsWith('mailto:') ? undefined : '_blank'"
+        :rel="link.href?.startsWith('mailto:') ? undefined : 'noopener noreferrer'"
+        :aria-label="link.label"
+      >
+        {{ link.shortLabel }}
+      </a>
+    </div>
   </div>
 </template>

@@ -2,7 +2,6 @@
 import MainLayout from '@/layouts/MainLayout.vue'
 import ContactActions from '@/components/ui/ContactActions.vue'
 import PhoneLink from '@/components/ui/PhoneLink.vue'
-import SocialIcons from '@/components/ui/SocialIcons.vue'
 import { useAttorneyStore } from '@/stores/attorney'
 import { usePageSeo, useAttorneySchema } from '@/composables/useSchemaOrg'
 import { CONTACT_EMAIL } from '@/utils/constants'
@@ -21,43 +20,55 @@ useAttorneySchema(attorneyStore.attorney)
   <MainLayout>
     <section class="section-paper site-section">
       <div class="site-container">
-        <h1 class="display-title mb-16 max-w-5xl">
-          Контакты
-        </h1>
+        <div class="mb-10 max-w-2xl">
+          <span class="eyebrow mb-4">На связи</span>
+          <h1 class="display-title mb-4">
+            Контакты
+          </h1>
+          <p class="text-lg text-black/65">
+            Выберите удобный способ связи с адвокатом или найдите адрес офиса в Омске.
+          </p>
+        </div>
 
-        <div class="grid gap-12 border-t border-black/20 pt-10 md:grid-cols-2 md:gap-24">
-          <div>
-            <h2 class="mb-8 text-4xl uppercase">
-              Как с нами связаться
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-black/10 bg-[#ebe6dc] p-8 md:p-10">
+            <h2 class="mb-7 text-2xl">
+              Офис и реквизиты
             </h2>
-            <p class="mb-2">
-              <PhoneLink show-icon />
-            </p>
-            <p class="mb-2">
+            <address class="not-italic">
+              <p class="mb-2 font-semibold">
+                {{ attorneyStore.attorney.fullName }}
+              </p>
+              <p class="mb-6 text-black/65">
+                Регистрационный номер {{ attorneyStore.attorney.regNumber }}
+              </p>
+              <p class="mb-1">
+                {{ attorneyStore.attorney.city }}, {{ attorneyStore.attorney.address }}
+              </p>
+              <p class="text-black/65">
+                Индекс {{ attorneyStore.attorney.postalCode }}
+              </p>
+            </address>
+            <div class="mt-8 border-t border-black/10 pt-6">
+              <PhoneLink
+                v-if="attorneyStore.attorney.phone"
+                show-icon
+              />
               <a
                 :href="`mailto:${CONTACT_EMAIL}`"
-                class="text-primary-800 underline underline-offset-4 hover:text-primary-600"
+                class="block break-all text-primary-800 underline underline-offset-4 hover:text-primary-600"
               >
                 {{ CONTACT_EMAIL }}
               </a>
-            </p>
-            <p class="mt-8 text-black/60">
-              {{ attorneyStore.attorney.address }}
-            </p>
-            <p class="text-black/60">
-              {{ attorneyStore.attorney.city }}, {{ attorneyStore.attorney.postalCode }}
-            </p>
-            <div class="mt-8">
-              <SocialIcons variant="light" />
             </div>
           </div>
 
-          <div>
-            <h2 class="mb-6 text-3xl uppercase">
+          <div class="rounded-lg border border-black/10 bg-white/50 p-8 md:p-10">
+            <h2 class="mb-5 text-2xl">
               Написать адвокату
             </h2>
-            <p class="mb-7 text-black/60">
-              Выберите удобный способ связи. Сообщение откроется в выбранном приложении.
+            <p class="mb-8 max-w-md text-black/65">
+              Расскажите о ситуации в удобном мессенджере. Ответ поступит в выбранном приложении.
             </p>
             <ContactActions />
           </div>
