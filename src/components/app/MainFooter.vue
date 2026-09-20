@@ -18,7 +18,6 @@ const year = new Date().getFullYear()
         <RouterLink
           to="/policy"
           class="block text-sm text-[#aaa69e] underline underline-offset-4 hover:text-primary-200"
-          target="_blank"
         >
           Политика конфиденциальности
         </RouterLink>
