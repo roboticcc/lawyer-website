@@ -30,6 +30,27 @@ const attorneyStore = useAttorneyStore()
         : attorneyStore.attorney.telegramUrl || '',
     }"
   >
+    <template #breadcrumb>
+      <nav
+        aria-label="Навигационная цепочка"
+        class="mb-8 text-sm text-primary-300"
+      >
+        <RouterLink
+          to="/"
+          class="underline underline-offset-4 hover:text-primary-50"
+        >
+          Главная
+        </RouterLink>
+        <span aria-hidden="true"> / </span>
+        <RouterLink
+          to="/uslugi"
+          class="underline underline-offset-4 hover:text-primary-50"
+        >
+          Услуги
+        </RouterLink>
+      </nav>
+    </template>
+
     <template #image>
       <img
         src="/images/legal-office.webp"

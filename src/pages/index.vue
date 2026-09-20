@@ -12,7 +12,7 @@ import { useAttorneyStore } from '@/stores/attorney'
 import { useServicesStore } from '@/stores/services'
 import { useCasesStore } from '@/stores/cases'
 import { useFaqStore } from '@/stores/faq'
-import { useAttorneySchema, usePageSeo } from '@/composables/useSchemaOrg'
+import { useAttorneySchema, usePageSeo, useWebSiteSchema } from '@/composables/useSchemaOrg'
 import { workSteps } from '@/data/workSteps'
 
 const attorneyStore = useAttorneyStore()
@@ -26,6 +26,7 @@ usePageSeo(
 )
 
 useAttorneySchema(attorneyStore.attorney, servicesStore.services)
+useWebSiteSchema()
 useHead({ link: [{ rel: 'preload', as: 'image', href: '/images/legal-office.webp' }] })
 
 </script>

@@ -53,9 +53,18 @@ const closeMenu = () => {
         :aria-expanded="isMenuOpen"
         @click="toggleMenu"
       >
-        <span class="absolute left-3 right-3 top-[14px] h-px bg-current transition-transform" :class="{ 'translate-y-[6px] rotate-45': isMenuOpen }" />
-        <span class="absolute left-3 right-3 top-[20px] h-px bg-current transition-opacity" :class="{ 'opacity-0': isMenuOpen }" />
-        <span class="absolute left-3 right-3 top-[26px] h-px bg-current transition-transform" :class="{ '-translate-y-[6px] -rotate-45': isMenuOpen }" />
+        <span
+          class="absolute left-3 right-3 top-[14px] h-px bg-current transition-transform"
+          :class="{ 'translate-y-[6px] rotate-45': isMenuOpen }"
+        />
+        <span
+          class="absolute left-3 right-3 top-[20px] h-px bg-current transition-opacity"
+          :class="{ 'opacity-0': isMenuOpen }"
+        />
+        <span
+          class="absolute left-3 right-3 top-[26px] h-px bg-current transition-transform"
+          :class="{ '-translate-y-[6px] -rotate-45': isMenuOpen }"
+        />
       </button>
     </div>
 

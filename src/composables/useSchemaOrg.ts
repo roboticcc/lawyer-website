@@ -5,7 +5,9 @@ import type { Attorney, FaqItem, Service } from '@/types'
 import {
   generateFaqSchema,
   generateLocalBusinessSchema,
+  generateServiceBreadcrumbSchema,
   generateServiceSchema,
+  generateWebSiteSchema,
 } from '@/utils/schema'
 import { SITE_NAME, SITE_URL } from '@/utils/constants'
 
@@ -30,6 +32,11 @@ export const useFaqSchema = (faqItems: FaqItem[]) => {
 
 export const useServiceSchema = (service: Service, attorney: Attorney) => {
   injectSchema(generateServiceSchema(service, attorney))
+  if (SITE_URL) injectSchema(generateServiceBreadcrumbSchema(service))
+}
+
+export const useWebSiteSchema = () => {
+  if (SITE_URL) injectSchema(generateWebSiteSchema())
 }
 
 interface SeoOptions {

@@ -65,6 +65,7 @@ if (siteUrl) {
   map.window.close()
 } else {
   assert(!robots.includes('Sitemap:'), 'robots: sitemap advertised without a domain')
+  await assert.rejects(readFile(join(dist, 'sitemap.xml'), 'utf8'), { code: 'ENOENT' })
 }
 
 console.log(`SEO check passed: ${allRoutes.size} pages, ${indexable.length} indexable`)

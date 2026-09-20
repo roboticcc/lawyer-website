@@ -18,7 +18,9 @@ useFaqSchema(faqStore.faqItems)
   <MainLayout>
     <section class="section-soft site-section--compact">
       <div class="site-container border-b border-white/15 pb-10">
-        <h1 class="display-title max-w-5xl">Вопросы и ответы</h1>
+        <h1 class="display-title max-w-5xl">
+          Вопросы и ответы
+        </h1>
       </div>
     </section>
 

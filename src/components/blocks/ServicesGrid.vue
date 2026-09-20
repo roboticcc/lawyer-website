@@ -9,7 +9,7 @@ withDefaults(
     description?: string
     showLinkToAll?: boolean
   }>(),
-  { title: 'Наша специализация', showLinkToAll: true }
+  { title: 'Наша специализация', description: '', showLinkToAll: true }
 )
 </script>
 

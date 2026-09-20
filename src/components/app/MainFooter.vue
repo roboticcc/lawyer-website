@@ -15,11 +15,34 @@ const year = new Date().getFullYear()
         <p class="eyebrow mb-5">
           {{ SITE_NAME }}
         </p>
-        <nav class="mb-7 flex flex-col gap-2 text-sm text-[#aaa69e]" aria-label="Разделы сайта">
-          <RouterLink to="/uslugi" class="hover:text-primary-200">Услуги адвоката</RouterLink>
-          <RouterLink to="/priory-raboty" class="hover:text-primary-200">Порядок работы</RouterLink>
-          <RouterLink to="/faq" class="hover:text-primary-200">Вопросы и ответы</RouterLink>
-          <RouterLink to="/kontakt" class="hover:text-primary-200">Контакты</RouterLink>
+        <nav
+          class="mb-7 flex flex-col gap-2 text-sm text-[#aaa69e]"
+          aria-label="Разделы сайта"
+        >
+          <RouterLink
+            to="/uslugi"
+            class="hover:text-primary-200"
+          >
+            Услуги адвоката
+          </RouterLink>
+          <RouterLink
+            to="/priory-raboty"
+            class="hover:text-primary-200"
+          >
+            Порядок работы
+          </RouterLink>
+          <RouterLink
+            to="/faq"
+            class="hover:text-primary-200"
+          >
+            Вопросы и ответы
+          </RouterLink>
+          <RouterLink
+            to="/kontakt"
+            class="hover:text-primary-200"
+          >
+            Контакты
+          </RouterLink>
         </nav>
         <RouterLink
           to="/policy"

@@ -17,6 +17,7 @@ defineProps<{
   <section class="section-soft site-section relative overflow-hidden">
     <div class="site-container grid items-center gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-20">
       <div>
+        <slot name="breadcrumb" />
         <h1 class="display-title max-w-5xl">
           {{ title }}
         </h1>
