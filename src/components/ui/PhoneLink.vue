@@ -15,6 +15,7 @@ const telHref = computed(() => `tel:${attorneyStore.attorney.phone}`)
 
 <template>
   <a
+    v-if="attorneyStore.attorney.phone"
     :href="telHref"
     class="phone-link inline-flex items-center gap-2"
   >

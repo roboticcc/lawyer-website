@@ -53,6 +53,8 @@ withDefaults(
       >
         <RouterLink
           to="/uslugi"
+          target="_blank"
+          rel="noopener noreferrer"
           class="button-outline"
         >
           <span>Показать все услуги</span>

@@ -33,7 +33,7 @@ const text = `Адвокат ${attorneyStore.attorney.fullName} • Профес
 
 .marquee-item {
   padding-right: 1.5rem;
-  font-family: "Iowan Old Style", Baskerville, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;

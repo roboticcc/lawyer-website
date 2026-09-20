@@ -35,7 +35,7 @@ const serviceHref = `/uslugi/${props.service.slug}`
   right: 1.5rem;
   color: rgba(242, 239, 232, 0.25);
   content: "0" counter(service);
-  font-family: "Iowan Old Style", Baskerville, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
 }
 </style>

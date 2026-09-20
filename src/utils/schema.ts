@@ -1,6 +1,5 @@
 import type { Attorney, FaqItem, ProcessStep, Service } from '@/types'
 import { generatePageUrl, generateServiceUrl } from './seo'
-import { OPENING_HOURS } from './constants'
 
 export const generateLocalBusinessSchema = (attorney: Attorney, services: Service[] = []) => {
   return {
@@ -8,7 +7,7 @@ export const generateLocalBusinessSchema = (attorney: Attorney, services: Servic
     '@type': 'LegalService',
     name: attorney.fullName,
     description: attorney.bio,
-    telephone: attorney.phone,
+    ...(attorney.phone ? { telephone: attorney.phone } : {}),
     email: attorney.email,
     address: {
       '@type': 'PostalAddress',
@@ -17,8 +16,7 @@ export const generateLocalBusinessSchema = (attorney: Attorney, services: Servic
       streetAddress: attorney.address,
       postalCode: attorney.postalCode,
     },
-    openingHours: OPENING_HOURS,
-    sameAs: [attorney.vkUrl, attorney.whatsappUrl, attorney.telegramUrl].filter(Boolean),
+    sameAs: [attorney.maxUrl, attorney.whatsappUrl, attorney.telegramUrl].filter(Boolean),
     priceRange: '$$$',
     areaServed: {
       '@type': 'City',
@@ -61,7 +59,7 @@ export const generateServiceSchema = (service: Service, attorney: Attorney) => {
     provider: {
       '@type': 'LegalService',
       name: attorney.fullName,
-      telephone: attorney.phone,
+      ...(attorney.phone ? { telephone: attorney.phone } : {}),
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'RU',

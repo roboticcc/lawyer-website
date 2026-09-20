@@ -8,8 +8,6 @@ export interface Attorney {
   fullName: string
   bio: string
   regNumber: string
-  experienceYears: number
-  casesWon: number
   phone: string
   email: string
   city: string
@@ -81,19 +79,4 @@ export interface ProcessStep {
   side: ProcessStepSide
   details?: string[]
   imageUrl?: string
-}
-
-export interface ConsultationFormValues {
-  name: string
-  phone: string
-  service?: string
-  agree: boolean
-}
-
-export interface ContactFormValues {
-  name: string
-  email?: string
-  phone: string
-  message?: string
-  agree: boolean
 }

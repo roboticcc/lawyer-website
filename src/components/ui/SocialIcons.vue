@@ -12,7 +12,6 @@ withDefaults(
 const attorneyStore = useAttorneyStore()
 
 const links = [
-  { key: 'vk', url: attorneyStore.attorney.vkUrl, label: 'ВКонтакте', external: true },
   { key: 'max', url: attorneyStore.attorney.maxUrl, label: 'Max', external: true },
   { key: 'whatsapp', url: attorneyStore.attorney.whatsappUrl, label: 'WhatsApp', external: true },
   { key: 'telegram', url: attorneyStore.attorney.telegramUrl, label: 'Telegram', external: true },

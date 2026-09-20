@@ -29,7 +29,7 @@ const faqStore = useFaqStore()
             :aria-controls="`faq-answer-${item.id}`"
             @click="faqStore.toggleItem(item.id)"
           >
-            <span class="font-serif text-xl leading-tight md:text-2xl">{{ item.question }}</span>
+            <span class="font-sans text-xl leading-tight md:text-2xl">{{ item.question }}</span>
             <span
               class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary-500/60 text-2xl font-light leading-none text-primary-300 transition-transform"
               :class="{ 'rotate-180': faqStore.isExpanded(item.id) }"

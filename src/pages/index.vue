@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import MainLayout from '@/layouts/MainLayout.vue'
-import ExperienceBanner from '@/components/blocks/ExperienceBanner.vue'
 import WorkProcess from '@/components/blocks/WorkProcess.vue'
 import ServicesGrid from '@/components/blocks/ServicesGrid.vue'
 import OtherPracticesAccordion from '@/components/blocks/OtherPracticesAccordion.vue'
 import LeadCaptureBlock from '@/components/blocks/LeadCaptureBlock.vue'
 import CasesShowcase from '@/components/blocks/CasesShowcase.vue'
 import FaqAccordion from '@/components/blocks/FaqAccordion.vue'
-import ContactForm from '@/components/blocks/ContactForm.vue'
+import ContactActions from '@/components/ui/ContactActions.vue'
 import { useAttorneyStore } from '@/stores/attorney'
 import { useServicesStore } from '@/stores/services'
 import { useCasesStore } from '@/stores/cases'
 import { useFaqStore } from '@/stores/faq'
-import { useUiStore } from '@/stores/ui'
 import { useAttorneySchema, usePageSeo } from '@/composables/useSchemaOrg'
 import { workSteps } from '@/data/workSteps'
 
@@ -20,12 +18,11 @@ const attorneyStore = useAttorneyStore()
 const servicesStore = useServicesStore()
 const casesStore = useCasesStore()
 const faqStore = useFaqStore()
-const uiStore = useUiStore()
 
 usePageSeo(
   `Адвокат ${attorneyStore.attorney.fullName} • Квалифицированная юридическая помощь в ${attorneyStore.attorney.city}`,
-  `Адвокат с ${attorneyStore.attorney.experienceYears}-летним стажем. Защита по уголовным, гражданским и административным делам. ${attorneyStore.attorney.casesWon}+ успешных судебных процессов.`,
-  'адвокат москва, защита прав, уголовный адвокат, гражданские споры, административные дела, юридическая помощь'
+  'Адвокат Мосензов Игорь Леонидович. Защита по уголовным, гражданским и административным делам.',
+  'адвокат Омск, защита прав, уголовный адвокат, гражданские споры, административные дела, юридическая помощь'
 )
 
 useAttorneySchema(attorneyStore.attorney, servicesStore.services)
@@ -49,14 +46,9 @@ useAttorneySchema(attorneyStore.attorney, servicesStore.services)
             надежный план защиты ваших интересов
           </p>
           <div class="hero-actions">
-            <button
-              type="button"
-              class="button-primary"
-              @click="uiStore.openLeadModal()"
-            >
-              Записаться на разбор дела
-            </button>
+            <ContactActions />
             <a
+              v-if="attorneyStore.attorney.phone"
               :href="`tel:${attorneyStore.attorney.phone}`"
               class="button-outline"
             >
@@ -67,11 +59,6 @@ useAttorneySchema(attorneyStore.attorney, servicesStore.services)
       </div>
     </section>
 
-    <ExperienceBanner
-      :cases-won="attorneyStore.attorney.casesWon"
-      :experience-years="attorneyStore.attorney.experienceYears"
-    />
-
     <WorkProcess
       :steps="workSteps"
       title="Порядок работы"
@@ -79,7 +66,7 @@ useAttorneySchema(attorneyStore.attorney, servicesStore.services)
 
     <ServicesGrid
       :services="servicesStore.mainCatalog"
-      title="Защита адвоката по уголовным делам"
+      title="Услуги адвоката"
       :show-link-to-all="true"
     />
 
@@ -95,14 +82,14 @@ useAttorneySchema(attorneyStore.attorney, servicesStore.services)
       <div class="site-container grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <div>
           <h2 class="display-title">
-          Нужна экстренная юридическая помощь?
+            Нужна экстренная юридическая помощь?
           </h2>
         </div>
         <div class="border-t border-black/20 pt-7">
           <p class="mb-8 max-w-xl text-black/60">
-          Оставьте свои координаты — мы оперативно свяжемся с вами для детального разбора ситуации
+            Свяжитесь с адвокатом напрямую удобным способом.
           </p>
-          <ContactForm :show-message="false" />
+          <ContactActions />
         </div>
       </div>
     </section>

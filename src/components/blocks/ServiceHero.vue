@@ -19,31 +19,27 @@ const attorneyStore = useAttorneyStore()
     :title="props.service.title"
     :subtitle="props.service.shortDescription"
     :action-button="{
-      text: 'Бесплатная консультация',
-      href: '#consultation-form',
+      text: 'Получить консультацию',
+      href: '#contact-options',
       variant: 'primary',
     }"
     :secondary-button="{
-      text: 'Позвонить сейчас',
-      href: `tel:${attorneyStore.attorney.phone}`,
+      text: attorneyStore.attorney.phone ? 'Позвонить сейчас' : 'Написать в Telegram',
+      href: attorneyStore.attorney.phone
+        ? `tel:${attorneyStore.attorney.phone}`
+        : attorneyStore.attorney.telegramUrl || '',
     }"
   >
     <template #image>
-      <div class="abstract-portrait" aria-hidden="true" />
+      <img
+        src="/images/legal-office.webp"
+        alt="Иллюстрация юридического кабинета"
+        class="h-[26rem] w-full border border-white/15 object-cover md:h-[32rem]"
+      >
     </template>
 
     <template #details>
-      <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs uppercase tracking-[0.1em] text-[#aaa69e]">
-        <div class="flex items-center gap-2.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
-          <span>{{ attorneyStore.attorney.experienceYears }} лет стажа</span>
-        </div>
-        <div class="flex items-center gap-2.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-primary-500" />
-          <span>{{ attorneyStore.attorney.casesWon }}+ успешных дел</span>
-        </div>
-      </div>
-      <p class="mt-5 font-serif text-2xl text-primary-300">
+      <p class="mt-5 font-sans text-2xl text-primary-300">
         {{ props.service.price }}
       </p>
     </template>

@@ -29,7 +29,7 @@ defineProps<{
           :key="step.step"
           class="grid gap-5 border-b border-black/20 py-8 md:grid-cols-[7rem_0.8fr_1.2fr] md:gap-10 md:py-12"
         >
-          <span class="font-serif text-3xl text-primary-700">0{{ step.step }}</span>
+          <span class="font-sans text-3xl text-primary-700">0{{ step.step }}</span>
           <h3 class="max-w-md uppercase">
             {{ step.title }}
           </h3>

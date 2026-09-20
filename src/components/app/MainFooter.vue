@@ -20,7 +20,7 @@ const year = new Date().getFullYear()
           class="block text-sm text-[#aaa69e] underline underline-offset-4 hover:text-primary-200"
           target="_blank"
         >
-          © Политика конфиденциальности
+          Политика конфиденциальности
         </RouterLink>
         <PhoneLink class="mt-7 block text-primary-200" />
         <a
@@ -44,10 +44,16 @@ const year = new Date().getFullYear()
         <p class="text-sm text-[#aaa69e]">
           {{ attorneyStore.attorney.address }}
         </p>
-        <p class="text-sm text-[#aaa69e]">
+        <p
+          v-if="attorneyStore.attorney.inn"
+          class="text-sm text-[#aaa69e]"
+        >
           ИНН: {{ attorneyStore.attorney.inn }}
         </p>
-        <p class="text-sm text-[#aaa69e]">
+        <p
+          v-if="attorneyStore.attorney.ogrn"
+          class="text-sm text-[#aaa69e]"
+        >
           ОГРН: {{ attorneyStore.attorney.ogrn }}
         </p>
       </div>

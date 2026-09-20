@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
 import ServiceHero from '@/components/blocks/ServiceHero.vue'
 import PricingBlock from '@/components/blocks/PricingBlock.vue'
-import ConsultationForm from '@/components/blocks/ConsultationForm.vue'
+import ContactActions from '@/components/ui/ContactActions.vue'
 import { useServicesStore } from '@/stores/services'
 import { useAttorneyStore } from '@/stores/attorney'
 import { useServiceSchema, usePageSeo } from '@/composables/useSchemaOrg'
@@ -32,20 +32,26 @@ if (service.value) {
 
       <section class="section-ink site-section--compact">
         <div class="site-container max-w-4xl border-l border-primary-500/60 pl-7 md:pl-12">
-        <p class="font-serif text-2xl leading-relaxed text-[#c7c2b9] md:text-3xl">
-          {{ service.longDescription }}
-        </p>
+          <p class="font-sans text-2xl leading-relaxed text-[#c7c2b9] md:text-3xl">
+            {{ service.longDescription }}
+          </p>
         </div>
       </section>
 
       <PricingBlock :services="[service]" />
 
-      <section class="section-paper site-section border-t border-black/15">
+      <section
+        id="contact-options"
+        class="section-paper site-section border-t border-black/15"
+      >
         <div class="site-container max-w-2xl">
           <h2 class="display-title mb-12">
             Получить консультацию
           </h2>
-          <ConsultationForm :service-name="service.title" />
+          <p class="mb-8 text-black/65">
+            Напишите адвокату напрямую, чтобы обсудить вашу ситуацию.
+          </p>
+          <ContactActions />
         </div>
       </section>
     </template>

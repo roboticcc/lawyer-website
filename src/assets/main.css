@@ -47,23 +47,23 @@
   h3,
   h4 {
     margin: 0;
-    font-family: "Iowan Old Style", Baskerville, "Times New Roman", Times, serif;
-    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
     letter-spacing: -0.035em;
-    line-height: 0.98;
+    line-height: 1.16;
   }
 
   h1 {
-    font-size: clamp(3rem, 7.2vw, 7.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
   }
 
   h2 {
-    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-size: clamp(2rem, 3.8vw, 3.5rem);
   }
 
   h3 {
-    font-size: clamp(1.45rem, 2.2vw, 2.1rem);
-    line-height: 1.08;
+    font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+    line-height: 1.2;
   }
 
   h4 {
@@ -197,8 +197,7 @@
     transform: translateY(-2px);
   }
 
-  .section-paper .button-outline,
-  .modal-panel .button-outline {
+  .section-paper .button-outline {
     color: var(--ink);
   }
 
@@ -215,7 +214,8 @@
     min-height: calc(100svh - 5rem);
     overflow: hidden;
     background:
-      linear-gradient(90deg, rgba(25, 25, 23, 0.98) 0%, rgba(25, 25, 23, 0.84) 43%, rgba(25, 25, 23, 0.25) 100%),
+      linear-gradient(90deg, rgba(25, 25, 23, 0.98) 0%, rgba(25, 25, 23, 0.88) 55%, rgba(25, 25, 23, 0.72) 100%),
+      url('/images/legal-office.webp') right 35% / cover,
       radial-gradient(circle at 75% 28%, rgba(172, 152, 126, 0.26), transparent 24%),
       linear-gradient(135deg, #292925 0%, #10100f 70%);
   }
@@ -228,21 +228,6 @@
       repeating-linear-gradient(90deg, transparent 0 11.9%, rgba(242, 239, 232, 0.035) 12% 12.05%);
     content: "";
     pointer-events: none;
-  }
-
-  .editorial-hero::after {
-    position: absolute;
-    top: 8%;
-    right: 8%;
-    width: min(42vw, 34rem);
-    aspect-ratio: 0.72;
-    border: 1px solid rgba(172, 152, 126, 0.5);
-    background:
-      linear-gradient(150deg, rgba(242, 239, 232, 0.08), transparent 45%),
-      rgba(8, 8, 8, 0.22);
-    box-shadow: -3rem 3rem 0 rgba(0, 0, 0, 0.12);
-    content: "";
-    transform: rotate(3deg);
   }
 
   .hero-layout {
@@ -261,11 +246,14 @@
   }
 
   .hero-title {
-    max-width: 58rem;
+    max-width: 45rem;
     margin-top: 1.5rem;
     color: var(--paper);
     text-transform: uppercase;
     overflow-wrap: break-word;
+    font-size: clamp(2.4rem, 3.7vw, 3.5rem);
+    letter-spacing: -0.045em;
+    line-height: 1.18;
   }
 
   .hero-copy {
@@ -279,79 +267,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-  }
-
-  .abstract-portrait {
-    position: relative;
-    min-height: 30rem;
-    overflow: hidden;
-    border: 1px solid var(--line-dark);
-    background:
-      radial-gradient(circle at 72% 22%, rgba(172, 152, 126, 0.24), transparent 22%),
-      linear-gradient(138deg, rgba(242, 239, 232, 0.12), transparent 36%),
-      #131312;
-  }
-
-  .abstract-portrait::before {
-    position: absolute;
-    inset: 13% 18% -18% 34%;
-    border: 1px solid rgba(172, 152, 126, 0.65);
-    border-radius: 50% 50% 0 0;
-    background: linear-gradient(110deg, rgba(242, 239, 232, 0.08), transparent 42%);
-    content: "";
-    transform: rotate(-8deg);
-  }
-
-  .abstract-portrait::after {
-    position: absolute;
-    right: 8%;
-    bottom: 8%;
-    left: 8%;
-    height: 1px;
-    background: var(--bronze);
-    content: "";
-  }
-
-  .form-field {
-    width: 100%;
-    border: 0;
-    border-bottom: 1px solid rgba(25, 25, 23, 0.35);
-    border-radius: 0;
-    background: transparent;
-    padding: 0.85rem 0;
-    color: var(--ink);
-    transition: border-color 180ms ease;
-  }
-
-  .form-field::placeholder {
-    color: rgba(25, 25, 23, 0.42);
-  }
-
-  .form-field:focus {
-    border-color: var(--bronze-dark);
-    outline: 0;
-  }
-
-  .form-label {
-    display: block;
-    margin-bottom: 0.25rem;
-    color: rgba(25, 25, 23, 0.64);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .modal-backdrop {
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(12px);
-  }
-
-  .modal-panel {
-    border: 1px solid rgba(25, 25, 23, 0.18);
-    background: var(--paper);
-    color: var(--ink);
-    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.45);
   }
 
   .reveal-animated {
@@ -388,13 +303,6 @@
     gap: 2.5rem;
   }
 
-  .editorial-hero::after {
-    top: 13%;
-    right: -8%;
-    width: 58vw;
-    opacity: 0.65;
-  }
-
   .hero-copy {
     max-width: 38rem;
   }
@@ -402,8 +310,8 @@
 
 @media (max-width: 640px) {
   h1 {
-    font-size: clamp(2.1rem, 9vw, 2.6rem);
-    overflow-wrap: anywhere;
+    font-size: clamp(2.1rem, 8vw, 2.6rem);
+    overflow-wrap: break-word;
   }
 
   .site-container {
@@ -420,17 +328,14 @@
   }
 
   .hero-title {
-    font-size: clamp(1.95rem, 8.1vw, 2.15rem);
-    line-height: 0.94;
+    font-size: clamp(1.65rem, 6.4vw, 2rem);
+    line-height: 1.24;
   }
 
   .hero-actions > * {
     width: 100%;
   }
 
-  .abstract-portrait {
-    min-height: 22rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

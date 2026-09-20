@@ -41,6 +41,8 @@ defineProps<{
           <a
             v-if="secondaryButton"
             :href="secondaryButton.href"
+            :target="secondaryButton.href.startsWith('http') ? '_blank' : undefined"
+            :rel="secondaryButton.href.startsWith('http') ? 'noopener noreferrer' : undefined"
             class="button-outline"
           >
             {{ secondaryButton.text }}
